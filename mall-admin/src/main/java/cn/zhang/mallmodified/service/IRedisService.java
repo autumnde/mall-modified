@@ -1,4 +1,4 @@
-package cn.zhang.malladmin.service;
+package cn.zhang.mallmodified.service;
 
 /**
  * @author autum

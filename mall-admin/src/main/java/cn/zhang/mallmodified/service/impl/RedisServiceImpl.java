@@ -1,6 +1,6 @@
-package cn.zhang.malladmin.service.impl;
+package cn.zhang.mallmodified.service.impl;
 
-import cn.zhang.malladmin.service.IRedisService;
+import cn.zhang.mallmodified.service.IRedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;

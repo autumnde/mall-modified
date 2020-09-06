@@ -1,4 +1,4 @@
-package cn.zhang.malladmin;
+package cn.zhang.mallmodified;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
