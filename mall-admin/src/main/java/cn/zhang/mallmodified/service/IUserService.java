@@ -62,4 +62,11 @@ public interface IUserService {
      * @return
      */
     ServerResponse updateInformation(User user);
+
+    /**
+     * 检查该角色是否为管理员
+     * @param user
+     * @return
+     */
+    ServerResponse checkAdminRole(User user);
 }

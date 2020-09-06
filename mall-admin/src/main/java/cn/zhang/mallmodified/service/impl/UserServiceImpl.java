@@ -133,6 +133,14 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createBySuccess("用户信息更新成功",updateUser);
     }
 
+    @Override
+    public ServerResponse checkAdminRole(User user) {
+        if(user != null && user.getRole() == Const.Role.ROLE_ADMIN){
+            return ServerResponse.createBySuccess();
+        }
+        return ServerResponse.createByError();
+    }
+
     public ServerResponse<String> checkValid(String value,String type){
         if(StrUtil.equals(type, Const.USERNAME,true)){
             if(userDao.checkUsername(value) > 0){

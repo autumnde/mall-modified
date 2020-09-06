@@ -8,6 +8,7 @@ class MallAdminApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }
