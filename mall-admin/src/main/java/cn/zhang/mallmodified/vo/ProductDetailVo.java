@@ -1,16 +1,16 @@
-package cn.zhang.mallmodified.model;
+package cn.zhang.mallmodified.vo;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
+import cn.zhang.mallmodified.model.Product;
 import lombok.Data;
 
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @author autum
  */
 @Data
-public class Product implements Serializable {
+public class ProductDetailVo {
     /**
      * 商品id
      */
@@ -64,12 +64,32 @@ public class Product implements Serializable {
     /**
      * 创建时间
      */
-    private Date createTime;
+    private String createTime;
 
     /**
      * 更新时间
      */
-    private Date updateTime;
+    private String updateTime;
 
-    private static final long serialVersionUID = 1L;
+    /*
+    父分类节点
+     */
+    private Integer parentCategoryId;
+    /*
+    所存图片的主机
+     */
+    private String imageHost;
+
+    public ProductDetailVo(Product product) {
+        this.setId(product.getId());
+        this.setSubtitle(product.getSubtitle());
+        this.setPrice(product.getPrice());
+        this.setMainImage(product.getMainImage());
+        this.setSubImages(product.getSubImages());
+        this.setCategoryId(product.getCategoryId());
+        this.setDetail(product.getDetail());
+        this.setName(product.getName());
+        this.setStatus(product.getStatus());
+        this.setStock(product.getStock());
+    }
 }

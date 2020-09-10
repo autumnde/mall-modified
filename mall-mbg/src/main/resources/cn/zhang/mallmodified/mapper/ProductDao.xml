@@ -163,7 +163,13 @@
       stock = #{stock,jdbcType=INTEGER},
       `status` = #{status,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectAllProducts" resultMap="BaseResultMap">
+select
+<include refid="Base_Column_List"></include>
+ from product
+ order by id asc
+  </select>
 </mapper>

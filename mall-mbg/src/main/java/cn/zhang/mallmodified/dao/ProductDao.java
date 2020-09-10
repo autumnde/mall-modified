@@ -2,6 +2,8 @@ package cn.zhang.mallmodified.dao;
 
 import cn.zhang.mallmodified.model.Product;
 
+import java.util.List;
+
 public interface ProductDao {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,8 @@ public interface ProductDao {
     int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+
+    List<Product> selectAllProducts();
+
+
 }
