@@ -1,8 +1,7 @@
 package cn.zhang.mallmodified.service;
 
 import cn.zhang.mallmodified.common.api.ServerResponse;
-import cn.zhang.mallmodified.model.Product;
-import org.springframework.web.multipart.MultipartFile;
+import cn.zhang.mallmodified.po.Product;
 
 /**
  * @author autum

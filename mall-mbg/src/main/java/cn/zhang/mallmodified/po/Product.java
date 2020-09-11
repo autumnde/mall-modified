@@ -1,4 +1,4 @@
-package cn.zhang.mallmodified.model;
+package cn.zhang.mallmodified.po;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

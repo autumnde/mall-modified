@@ -1,6 +1,6 @@
 package cn.zhang.mallmodified.dao;
 
-import cn.zhang.mallmodified.model.Category;
+import cn.zhang.mallmodified.po.Category;
 
 import java.util.List;
 

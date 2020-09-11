@@ -1,11 +1,10 @@
 package cn.zhang.mallmodified.service.impl;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.dao.CategoryDao;
-import cn.zhang.mallmodified.model.Category;
+import cn.zhang.mallmodified.po.Category;
 import cn.zhang.mallmodified.service.ICategoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

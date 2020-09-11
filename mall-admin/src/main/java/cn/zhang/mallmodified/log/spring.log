@@ -1,428 +1,535 @@
-2020-09-10 09:30:42.223  INFO 14588 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 14588 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
-2020-09-10 09:30:42.232  INFO 14588 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
-2020-09-10 09:30:43.233  INFO 14588 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-10 09:30:43.236  INFO 14588 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-10 09:30:43.261  INFO 14588 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
-2020-09-10 09:30:43.667  INFO 14588 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-09-10 09:30:43.675  INFO 14588 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-10 09:30:43.676  INFO 14588 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-09-10 09:30:43.677  INFO 14588 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
-2020-09-10 09:30:43.677  INFO 14588 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-09-10 09:30:43.677  INFO 14588 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-09-10 09:30:43.691  INFO 14588 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
-2020-09-10 09:30:43.761  INFO 14588 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-10 09:30:43.762  INFO 14588 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1471 ms
-2020-09-10 09:30:44.108  INFO 14588 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-09-10 09:30:44.231  INFO 14588 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-09-10 09:30:45.780  INFO 14588 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-10 09:30:46.110  INFO 14588 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-09-10 09:30:46.162  INFO 14588 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-09-10 09:30:46.738  INFO 14588 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2020-09-10 09:30:46.748  INFO 14588 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 5.096 seconds (JVM running for 6.387)
-2020-09-10 09:30:47.327  INFO 14588 --- [RMI TCP Connection(1)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-10 09:30:47.328  INFO 14588 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-10 09:30:47.330  INFO 14588 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2020-09-10 09:31:05.945  INFO 14588 --- [http-nio-8080-exec-4] c.z.mallmodified.common.utils.FtpUtils   : FTP连接成功!
-2020-09-10 09:31:05.946  INFO 14588 --- [http-nio-8080-exec-4] c.z.mallmodified.common.utils.FtpUtils   : 文件传输出错
-2020-09-10 09:31:57.779  INFO 1640 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 1640 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
-2020-09-10 09:31:57.781  INFO 1640 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
-2020-09-10 09:31:58.626  INFO 1640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-10 09:31:58.628  INFO 1640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-10 09:31:58.650  INFO 1640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
-2020-09-10 09:31:59.104  INFO 1640 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-09-10 09:31:59.113  INFO 1640 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-10 09:31:59.114  INFO 1640 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-09-10 09:31:59.115  INFO 1640 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
-2020-09-10 09:31:59.116  INFO 1640 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-09-10 09:31:59.116  INFO 1640 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-09-10 09:31:59.120  INFO 1640 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
-2020-09-10 09:31:59.201  INFO 1640 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-10 09:31:59.201  INFO 1640 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1370 ms
-2020-09-10 09:31:59.608  INFO 1640 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-09-10 09:31:59.715  INFO 1640 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-09-10 09:32:01.246  INFO 1640 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-10 09:32:01.576  INFO 1640 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-09-10 09:32:01.636  INFO 1640 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-09-10 09:32:02.214  INFO 1640 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2020-09-10 09:32:02.223  INFO 1640 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 4.913 seconds (JVM running for 7.578)
-2020-09-10 09:32:03.688  INFO 1640 --- [RMI TCP Connection(5)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-10 09:32:03.688  INFO 1640 --- [RMI TCP Connection(5)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-10 09:32:03.690  INFO 1640 --- [RMI TCP Connection(5)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2020-09-10 09:32:14.730  INFO 1640 --- [http-nio-8080-exec-2] c.z.mallmodified.common.utils.FtpUtils   : FTP连接成功!
-2020-09-10 09:32:51.249  INFO 1640 --- [http-nio-8080-exec-2] c.z.mallmodified.common.utils.FtpUtils   : 文件传输出错
-2020-09-10 09:32:51.967  INFO 1640 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-09-10 09:32:51.970  INFO 1640 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2020-09-10 09:33:23.757  INFO 1624 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 1624 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
-2020-09-10 09:33:23.761  INFO 1624 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
-2020-09-10 09:33:24.646  INFO 1624 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-10 09:33:24.648  INFO 1624 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-10 09:33:24.663  INFO 1624 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
-2020-09-10 09:33:25.021  INFO 1624 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-09-10 09:33:25.028  INFO 1624 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-10 09:33:25.028  INFO 1624 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-09-10 09:33:25.030  INFO 1624 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
-2020-09-10 09:33:25.030  INFO 1624 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-09-10 09:33:25.030  INFO 1624 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-09-10 09:33:25.033  INFO 1624 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
-2020-09-10 09:33:25.097  INFO 1624 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-10 09:33:25.097  INFO 1624 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1267 ms
-2020-09-10 09:33:25.440  INFO 1624 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-09-10 09:33:25.535  INFO 1624 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-09-10 09:33:27.015  INFO 1624 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-10 09:33:27.325  INFO 1624 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-09-10 09:33:27.368  INFO 1624 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-09-10 09:33:27.934  INFO 1624 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2020-09-10 09:33:27.942  INFO 1624 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 4.615 seconds (JVM running for 5.843)
-2020-09-10 09:33:28.936  INFO 1624 --- [RMI TCP Connection(3)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-10 09:33:28.937  INFO 1624 --- [RMI TCP Connection(3)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-10 09:33:28.939  INFO 1624 --- [RMI TCP Connection(3)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2020-09-10 09:33:30.045  INFO 1624 --- [http-nio-8080-exec-3] c.z.mallmodified.common.utils.FtpUtils   : FTP连接成功!
-2020-09-10 09:33:30.046  INFO 1624 --- [http-nio-8080-exec-3] c.z.mallmodified.common.utils.FtpUtils   : 文件传输出错
-2020-09-10 09:33:45.654  INFO 16160 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 16160 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
-2020-09-10 09:33:45.658  INFO 16160 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
-2020-09-10 09:33:46.525  INFO 16160 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-10 09:33:46.526  INFO 16160 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-10 09:33:46.543  INFO 16160 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
-2020-09-10 09:33:47.097  INFO 16160 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-09-10 09:33:47.105  INFO 16160 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-10 09:33:47.105  INFO 16160 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-09-10 09:33:47.107  INFO 16160 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
-2020-09-10 09:33:47.107  INFO 16160 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-09-10 09:33:47.107  INFO 16160 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-09-10 09:33:47.109  INFO 16160 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
-2020-09-10 09:33:47.178  INFO 16160 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-10 09:33:47.178  INFO 16160 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1453 ms
-2020-09-10 09:33:47.589  INFO 16160 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-09-10 09:33:47.758  INFO 16160 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-09-10 09:33:49.367  INFO 16160 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-10 09:33:49.745  INFO 16160 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-09-10 09:33:49.824  INFO 16160 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-09-10 09:33:50.306  INFO 16160 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-10 09:33:50.307  INFO 16160 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-10 09:33:50.308  INFO 16160 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2020-09-10 09:33:50.402  INFO 16160 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2020-09-10 09:33:50.413  INFO 16160 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 5.379 seconds (JVM running for 6.839)
-2020-09-10 09:33:50.725  INFO 16160 --- [http-nio-8080-exec-1] c.z.mallmodified.common.utils.FtpUtils   : FTP连接成功!
-2020-09-10 09:34:34.382 ERROR 16160 --- [pool-2-thread-1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+2020-09-11 18:40:59.358  INFO 3648 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 3648 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
+2020-09-11 18:40:59.380  INFO 3648 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
+2020-09-11 18:41:00.837  INFO 3648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-11 18:41:00.842  INFO 3648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-11 18:41:00.867  INFO 3648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2020-09-11 18:41:01.507  INFO 3648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-11 18:41:01.520  INFO 3648 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-11 18:41:01.520  INFO 3648 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-11 18:41:01.523  INFO 3648 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2020-09-11 18:41:01.523  INFO 3648 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-11 18:41:01.523  INFO 3648 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-11 18:41:01.529  INFO 3648 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-09-11 18:41:01.607  INFO 3648 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-11 18:41:01.608  INFO 3648 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2135 ms
+2020-09-11 18:41:02.216  INFO 3648 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-09-11 18:41:02.405  INFO 3648 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-11 18:41:06.649  INFO 3648 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-11 18:41:07.271  INFO 3648 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-09-11 18:41:07.340  INFO 3648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-11 18:41:07.929  INFO 3648 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-09-11 18:41:07.943  INFO 3648 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 9.547 seconds (JVM running for 11.961)
+2020-09-11 18:41:09.554  INFO 3648 --- [RMI TCP Connection(5)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-11 18:41:09.556  INFO 3648 --- [RMI TCP Connection(5)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-11 18:41:09.559  INFO 3648 --- [RMI TCP Connection(5)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-09-11 18:42:40.586 ERROR 3648 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'usr_id' in 'where clause'
+### The error may exist in file [D:\WorkSpace\mall-modified\mall-mbg\target\classes\cn\zhang\mallmodified\mapper\CartDao.xml]
+### The error may involve cn.zhang.mallmodified.dao.CartDao.selectCheckedNumOf-Inline
+### The error occurred while setting parameters
+### SQL: select count(1)     from cart     where usr_id = ? and checked = 0
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'usr_id' in 'where clause'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'usr_id' in 'where clause'] with root cause
 
-org.springframework.dao.QueryTimeoutException: Redis command timed out; nested exception is io.lettuce.core.RedisCommandTimeoutException: Command timed out after 3 second(s)
-	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:70) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:272) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.convertLettuceAccessException(LettuceSetCommands.java:521) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sMembers(LettuceSetCommands.java:246) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.connection.DefaultedRedisConnection.sMembers(DefaultedRedisConnection.java:791) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.core.DefaultSetOperations.lambda$members$10(DefaultSetOperations.java:214) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:228) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:188) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:96) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.core.DefaultSetOperations.members(DefaultSetOperations.java:214) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.data.redis.core.DefaultBoundSetOperations.members(DefaultBoundSetOperations.java:152) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	at org.springframework.session.data.redis.RedisSessionExpirationPolicy.cleanExpiredSessions(RedisSessionExpirationPolicy.java:129) ~[spring-session-data-redis-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.session.data.redis.RedisIndexedSessionRepository.cleanupExpiredSessions(RedisIndexedSessionRepository.java:407) ~[spring-session-data-redis-2.2.2.RELEASE.jar:2.2.2.RELEASE]
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93) ~[spring-context-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
-	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264) ~[na:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java) ~[na:na]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
-Caused by: io.lettuce.core.RedisCommandTimeoutException: Command timed out after 3 second(s)
-	at io.lettuce.core.ExceptionFactory.createTimeoutException(ExceptionFactory.java:51) ~[lettuce-core-5.3.3.RELEASE.jar:5.3.3.RELEASE]
-	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:119) ~[lettuce-core-5.3.3.RELEASE.jar:5.3.3.RELEASE]
-	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:75) ~[lettuce-core-5.3.3.RELEASE.jar:5.3.3.RELEASE]
-	at io.lettuce.core.internal.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:79) ~[lettuce-core-5.3.3.RELEASE.jar:5.3.3.RELEASE]
-	at com.sun.proxy.$Proxy91.smembers(Unknown Source) ~[na:na]
-	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sMembers(LettuceSetCommands.java:244) ~[spring-data-redis-2.4.0-20200909.121413-200.jar:2.4.0-SNAPSHOT]
-	... 18 common frames omitted
-
-2020-09-10 09:34:56.310  INFO 16160 --- [http-nio-8080-exec-1] c.z.mallmodified.common.utils.FtpUtils   : 文件传输出错
-2020-09-10 09:34:57.164  INFO 16160 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-09-10 09:34:57.166  INFO 16160 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2020-09-10 09:35:47.910  INFO 9572 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 9572 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
-2020-09-10 09:35:47.913  INFO 9572 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
-2020-09-10 09:35:48.826  INFO 9572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-10 09:35:48.828  INFO 9572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-10 09:35:48.848  INFO 9572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
-2020-09-10 09:35:49.262  INFO 9572 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-09-10 09:35:49.268  INFO 9572 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-10 09:35:49.268  INFO 9572 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-09-10 09:35:49.269  INFO 9572 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
-2020-09-10 09:35:49.270  INFO 9572 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-09-10 09:35:49.270  INFO 9572 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-09-10 09:35:49.272  INFO 9572 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
-2020-09-10 09:35:49.335  INFO 9572 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-10 09:35:49.335  INFO 9572 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1355 ms
-2020-09-10 09:35:49.701  INFO 9572 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-09-10 09:35:49.795  INFO 9572 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-09-10 09:35:51.280  INFO 9572 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-10 09:35:51.600  INFO 9572 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-09-10 09:35:51.645  INFO 9572 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-09-10 09:35:52.237  INFO 9572 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2020-09-10 09:35:52.246  INFO 9572 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 4.831 seconds (JVM running for 6.331)
-2020-09-10 09:35:52.522  INFO 9572 --- [RMI TCP Connection(1)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-10 09:35:52.523  INFO 9572 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-10 09:35:52.524  INFO 9572 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2020-09-10 09:36:13.134  INFO 9572 --- [http-nio-8080-exec-4] c.z.mallmodified.common.utils.FtpUtils   : FTP连接成功!
-2020-09-10 09:42:11.194  INFO 9572 --- [http-nio-8080-exec-4] c.z.mallmodified.common.utils.FtpUtils   : 文件传输出错
-2020-09-10 09:42:12.120  INFO 9572 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-09-10 09:42:12.124  INFO 9572 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2020-09-10 09:58:43.127  INFO 17008 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 17008 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
-2020-09-10 09:58:43.130  INFO 17008 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
-2020-09-10 09:58:44.145  INFO 17008 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-10 09:58:44.147  INFO 17008 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-10 09:58:44.162  INFO 17008 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
-2020-09-10 09:58:44.566  INFO 17008 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-09-10 09:58:44.573  INFO 17008 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-10 09:58:44.573  INFO 17008 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-09-10 09:58:44.574  INFO 17008 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
-2020-09-10 09:58:44.574  INFO 17008 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-09-10 09:58:44.574  INFO 17008 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-09-10 09:58:44.577  INFO 17008 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
-2020-09-10 09:58:44.645  INFO 17008 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-10 09:58:44.645  INFO 17008 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1458 ms
-2020-09-10 09:58:45.000  INFO 17008 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-09-10 09:58:45.105  INFO 17008 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-09-10 09:58:46.625  INFO 17008 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-10 09:58:46.930  INFO 17008 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-09-10 09:58:46.973  INFO 17008 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-09-10 09:58:47.529  INFO 17008 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2020-09-10 09:58:47.536  INFO 17008 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 4.774 seconds (JVM running for 5.992)
-2020-09-10 09:58:48.818  INFO 17008 --- [RMI TCP Connection(2)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-10 09:58:48.818  INFO 17008 --- [RMI TCP Connection(2)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-10 09:58:48.820  INFO 17008 --- [RMI TCP Connection(2)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2020-09-10 09:58:57.419  INFO 17008 --- [http-nio-8080-exec-2] c.z.mallmodified.common.utils.FtpUtils   : 创建客户端出错
-2020-09-10 09:58:57.420  INFO 17008 --- [http-nio-8080-exec-2] c.z.mallmodified.common.utils.FtpUtils   : 上传文件出错
-2020-09-10 10:02:02.716  INFO 5584 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 5584 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
-2020-09-10 10:02:02.720  INFO 5584 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
-2020-09-10 10:02:03.713  INFO 5584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-10 10:02:03.715  INFO 5584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-10 10:02:03.738  INFO 5584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
-2020-09-10 10:02:04.240  INFO 5584 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-09-10 10:02:04.250  INFO 5584 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-10 10:02:04.250  INFO 5584 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-09-10 10:02:04.252  INFO 5584 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
-2020-09-10 10:02:04.253  INFO 5584 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-09-10 10:02:04.253  INFO 5584 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-09-10 10:02:04.257  INFO 5584 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
-2020-09-10 10:02:04.340  INFO 5584 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-10 10:02:04.341  INFO 5584 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1561 ms
-2020-09-10 10:02:04.811  INFO 5584 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-09-10 10:02:04.970  INFO 5584 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-09-10 10:02:06.755  INFO 5584 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-10 10:02:07.169  INFO 5584 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-09-10 10:02:07.228  INFO 5584 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-09-10 10:02:07.796  INFO 5584 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2020-09-10 10:02:07.806  INFO 5584 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 5.688 seconds (JVM running for 7.135)
-2020-09-10 10:02:08.299  INFO 5584 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-10 10:02:08.300  INFO 5584 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-10 10:02:08.304  INFO 5584 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2020-09-10 11:12:11.216  INFO 5584 --- [http-nio-8080-exec-2] c.z.mallmodified.common.utils.FtpUtils   : 创建客户端出错
-2020-09-10 11:12:11.303  INFO 5584 --- [http-nio-8080-exec-2] c.z.mallmodified.common.utils.FtpUtils   : 上传文件出错
-2020-09-10 11:12:11.392  WARN 5584 --- [springSessionRedisMessageListenerContainer-3] o.s.s.d.r.RedisIndexedSessionRepository  : Unable to publish SessionDestroyedEvent for session 0fbdf0db-410b-495f-a10b-e24b0c707cfb
-2020-09-10 11:12:12.486  INFO 5584 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-09-10 11:12:12.491  INFO 5584 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2020-09-10 11:12:12.530  WARN 5584 --- [RMI TCP Connection(5)-169.254.238.1] o.s.b.a.jdbc.DataSourceHealthIndicator   : DataSource health check failed
-
-org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.alibaba.druid.pool.DataSourceClosedException: dataSource already closed at Thu Sep 10 11:12:12 GMT+08:00 2020
-	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:82) ~[spring-jdbc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:330) ~[spring-jdbc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
-	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.isConnectionValid(DataSourceHealthIndicator.java:130) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doDataSourceHealthCheck(DataSourceHealthIndicator.java:116) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doHealthCheck(DataSourceHealthIndicator.java:100) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:71) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:39) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:99) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateHealth(HealthEndpointSupport.java:110) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:96) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:74) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:61) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:65) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:55) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
+java.sql.SQLSyntaxErrorException: Unknown column 'usr_id' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:955) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:372) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3409) ~[druid-1.1.10.jar:1.1.10]
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440) ~[druid-1.1.10.jar:1.1.10]
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3407) ~[druid-1.1.10.jar:1.1.10]
+	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:167) ~[druid-1.1.10.jar:1.1.10]
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.1.jar:3.5.1]
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) ~[pagehelper-5.1.10.jar:na]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61) ~[mybatis-3.5.1.jar:3.5.1]
+	at com.sun.proxy.$Proxy114.query(Unknown Source) ~[na:na]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76) ~[mybatis-3.5.1.jar:3.5.1]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
-	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:77) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:121) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:96) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
-	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801) ~[na:na]
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466) ~[na:na]
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307) ~[na:na]
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399) ~[na:na]
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827) ~[na:na]
-	at java.base/jdk.internal.reflect.GeneratedMethodAccessor67.invoke(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433) ~[mybatis-spring-2.0.1.jar:2.0.1]
+	at com.sun.proxy.$Proxy85.selectOne(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:166) ~[mybatis-spring-2.0.1.jar:2.0.1]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:58) ~[mybatis-3.5.1.jar:3.5.1]
+	at com.sun.proxy.$Proxy91.selectCheckedNumOf(Unknown Source) ~[na:na]
+	at cn.zhang.mallmodified.service.impl.CartServiceImpl.isAllChecked(CartServiceImpl.java:65) ~[classes/:na]
+	at cn.zhang.mallmodified.service.impl.CartServiceImpl.list(CartServiceImpl.java:51) ~[classes/:na]
+	at cn.zhang.mallmodified.controller.portal.CartController.getCartList(CartController.java:27) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359) ~[na:na]
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200) ~[na:na]
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197) ~[na:na]
-	at java.base/java.security.AccessController.doPrivileged(Native Method) ~[na:na]
-	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[na:na]
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562) ~[na:na]
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796) ~[na:na]
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677) ~[na:na]
-	at java.base/java.security.AccessController.doPrivileged(Native Method) ~[na:na]
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:802) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.37.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.37.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:141) ~[spring-session-core-2.4.0-M1.jar:2.4.0-M1]
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:82) ~[spring-session-core-2.4.0-M1.jar:2.4.0-M1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
-Caused by: com.alibaba.druid.pool.DataSourceClosedException: dataSource already closed at Thu Sep 10 11:12:12 GMT+08:00 2020
-	at com.alibaba.druid.pool.DruidDataSource.getConnectionInternal(DruidDataSource.java:1358) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidDataSource.getConnectionDirect(DruidDataSource.java:1255) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5007) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.stat.StatFilter.dataSource_getConnection(StatFilter.java:680) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterChainImpl.dataSource_connect(FilterChainImpl.java:5003) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1233) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1225) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:90) ~[druid-1.1.10.jar:1.1.10]
-	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:158) ~[spring-jdbc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
-	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:116) ~[spring-jdbc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
-	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:79) ~[spring-jdbc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
-	... 46 common frames omitted
 
-2020-09-10 15:32:54.405  INFO 18348 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 18348 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
-2020-09-10 15:32:54.408  INFO 18348 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
-2020-09-10 15:32:55.650  INFO 18348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-10 15:32:55.652  INFO 18348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-10 15:32:55.670  INFO 18348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
-2020-09-10 15:32:56.064  INFO 18348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-09-10 15:32:56.072  INFO 18348 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-10 15:32:56.072  INFO 18348 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-09-10 15:32:56.073  INFO 18348 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
-2020-09-10 15:32:56.073  INFO 18348 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-09-10 15:32:56.074  INFO 18348 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-09-10 15:32:56.087  INFO 18348 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
-2020-09-10 15:32:56.150  INFO 18348 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-10 15:32:56.151  INFO 18348 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1655 ms
-2020-09-10 15:32:56.503  INFO 18348 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-09-10 15:32:56.606  INFO 18348 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-09-10 15:32:58.235  INFO 18348 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-10 15:32:58.552  INFO 18348 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-09-10 15:32:58.605  INFO 18348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-09-10 15:32:59.159  INFO 18348 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2020-09-10 15:32:59.171  INFO 18348 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 5.473 seconds (JVM running for 7.438)
-2020-09-10 15:32:59.897  INFO 18348 --- [RMI TCP Connection(1)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-10 15:32:59.898  INFO 18348 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-10 15:32:59.900  INFO 18348 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2020-09-10 15:33:32.302  INFO 18348 --- [http-nio-8080-exec-2] c.z.mallmodified.common.utils.FtpUtils   : 创建客户端出错
-2020-09-10 15:33:32.303  INFO 18348 --- [http-nio-8080-exec-2] c.z.mallmodified.common.utils.FtpUtils   : 上传文件出错
-2020-09-10 15:34:45.654  INFO 6632 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 6632 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
-2020-09-10 15:34:45.661  INFO 6632 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
-2020-09-10 15:34:46.638  INFO 6632 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-10 15:34:46.640  INFO 6632 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-10 15:34:46.681  INFO 6632 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
-2020-09-10 15:34:47.100  INFO 6632 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-09-10 15:34:47.109  INFO 6632 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-10 15:34:47.109  INFO 6632 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-09-10 15:34:47.111  INFO 6632 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
-2020-09-10 15:34:47.111  INFO 6632 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-09-10 15:34:47.111  INFO 6632 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-09-10 15:34:47.114  INFO 6632 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
-2020-09-10 15:34:47.197  INFO 6632 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-10 15:34:47.197  INFO 6632 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1471 ms
-2020-09-10 15:34:47.569  INFO 6632 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-09-10 15:34:47.743  INFO 6632 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-09-10 15:34:49.774  INFO 6632 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-10 15:34:50.124  INFO 6632 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-09-10 15:34:50.188  INFO 6632 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-09-10 15:34:50.807  INFO 6632 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2020-09-10 15:34:50.826  INFO 6632 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 5.772 seconds (JVM running for 7.333)
-2020-09-10 15:34:50.835  INFO 6632 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-10 15:34:50.836  INFO 6632 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-10 15:34:50.837  INFO 6632 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2020-09-10 15:42:09.816  INFO 6632 --- [http-nio-8080-exec-2] c.z.mallmodified.common.utils.FtpUtils   : 创建客户端出错
-2020-09-10 15:42:09.820  INFO 6632 --- [http-nio-8080-exec-2] c.z.mallmodified.common.utils.FtpUtils   : 上传文件出错
-2020-09-10 15:42:09.823  WARN 6632 --- [RMI TCP Connection(2)-169.254.238.1] javax.management.remote.misc             : The server has decided to close this client connection.
-2020-09-10 15:42:10.651  INFO 6632 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-09-10 15:42:10.653  INFO 6632 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2020-09-10 15:42:35.278  INFO 14544 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 14544 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
-2020-09-10 15:42:35.285  INFO 14544 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
-2020-09-10 15:42:36.103  INFO 14544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-10 15:42:36.105  INFO 14544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-10 15:42:36.127  INFO 14544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
-2020-09-10 15:42:36.571  INFO 14544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-09-10 15:42:36.580  INFO 14544 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-10 15:42:36.580  INFO 14544 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-09-10 15:42:36.581  INFO 14544 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
-2020-09-10 15:42:36.581  INFO 14544 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-09-10 15:42:36.581  INFO 14544 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-09-10 15:42:36.584  INFO 14544 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
-2020-09-10 15:42:36.651  INFO 14544 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-10 15:42:36.651  INFO 14544 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1319 ms
-2020-09-10 15:42:37.064  INFO 14544 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-09-10 15:42:37.191  INFO 14544 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-09-10 15:42:39.011  INFO 14544 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-10 15:42:39.378  INFO 14544 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-09-10 15:42:39.428  INFO 14544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-09-10 15:42:39.976  INFO 14544 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2020-09-10 15:42:39.986  INFO 14544 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 5.465 seconds (JVM running for 7.097)
-2020-09-10 15:42:40.756  INFO 14544 --- [RMI TCP Connection(2)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-10 15:42:40.757  INFO 14544 --- [RMI TCP Connection(2)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-10 15:42:40.758  INFO 14544 --- [RMI TCP Connection(2)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2020-09-10 15:43:16.297  INFO 14544 --- [http-nio-8080-exec-1] c.z.mallmodified.common.utils.FtpUtils   : 创建客户端出错
-2020-09-10 15:43:17.894  INFO 14544 --- [http-nio-8080-exec-1] c.z.mallmodified.common.utils.FtpUtils   : 上传文件出错
-2020-09-10 15:43:23.482  INFO 14544 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-09-10 15:43:23.489  INFO 14544 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2020-09-10 15:43:29.029  INFO 20012 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 20012 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
-2020-09-10 15:43:29.032  INFO 20012 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
-2020-09-10 15:43:29.894  INFO 20012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-10 15:43:29.896  INFO 20012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-10 15:43:29.913  INFO 20012 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
-2020-09-10 15:43:30.423  INFO 20012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-09-10 15:43:30.431  INFO 20012 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-10 15:43:30.431  INFO 20012 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-09-10 15:43:30.432  INFO 20012 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
-2020-09-10 15:43:30.433  INFO 20012 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-09-10 15:43:30.433  INFO 20012 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-09-10 15:43:30.436  INFO 20012 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
-2020-09-10 15:43:30.502  INFO 20012 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-10 15:43:30.503  INFO 20012 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1392 ms
-2020-09-10 15:43:30.901  INFO 20012 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-09-10 15:43:31.007  INFO 20012 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-09-10 15:43:32.865  INFO 20012 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-10 15:43:33.304  INFO 20012 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-09-10 15:43:33.355  INFO 20012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-09-10 15:43:33.720  INFO 20012 --- [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-10 15:43:33.721  INFO 20012 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-10 15:43:33.722  INFO 20012 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2020-09-10 15:43:37.213  INFO 20012 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2020-09-10 15:43:55.170  INFO 20012 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 12.032 seconds (JVM running for 28.43)
-2020-09-10 15:43:55.170  INFO 20012 --- [http-nio-8080-exec-4] c.z.mallmodified.common.utils.FtpUtils   : 创建客户端出错
-2020-09-10 15:43:55.174  INFO 20012 --- [http-nio-8080-exec-4] c.z.mallmodified.common.utils.FtpUtils   : 上传文件出错
-2020-09-10 15:43:55.940  INFO 20012 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-09-10 15:43:55.942  INFO 20012 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2020-09-10 15:44:20.272  INFO 22360 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 22360 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
-2020-09-10 15:44:20.279  INFO 22360 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
-2020-09-10 15:44:21.254  INFO 22360 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2020-09-10 15:44:21.256  INFO 22360 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2020-09-10 15:44:21.272  INFO 22360 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
-2020-09-10 15:44:21.647  INFO 22360 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-09-10 15:44:21.655  INFO 22360 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-10 15:44:21.655  INFO 22360 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2020-09-10 15:44:21.656  INFO 22360 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
-2020-09-10 15:44:21.657  INFO 22360 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-09-10 15:44:21.657  INFO 22360 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-09-10 15:44:21.659  INFO 22360 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
-2020-09-10 15:44:21.721  INFO 22360 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-10 15:44:21.721  INFO 22360 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1393 ms
-2020-09-10 15:44:22.101  INFO 22360 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2020-09-10 15:44:22.211  INFO 22360 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2020-09-10 15:44:23.981  INFO 22360 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-10 15:44:24.322  INFO 22360 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2020-09-10 15:44:24.374  INFO 22360 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-09-10 15:44:24.940  INFO 22360 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2020-09-10 15:44:24.951  INFO 22360 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 5.083 seconds (JVM running for 6.324)
-2020-09-10 15:44:24.952  INFO 22360 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-10 15:44:24.952  INFO 22360 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-10 15:44:24.953  INFO 22360 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2020-09-10 15:44:25.394  INFO 22360 --- [http-nio-8080-exec-2] c.z.mallmodified.common.utils.FtpUtils   : FTP连接成功!
+2020-09-11 18:46:47.355  INFO 4776 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 4776 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
+2020-09-11 18:46:47.359  INFO 4776 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
+2020-09-11 18:46:48.724  INFO 4776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-11 18:46:48.726  INFO 4776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-11 18:46:48.751  INFO 4776 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2020-09-11 18:46:49.230  INFO 4776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-11 18:46:49.240  INFO 4776 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-11 18:46:49.240  INFO 4776 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-11 18:46:49.242  INFO 4776 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2020-09-11 18:46:49.242  INFO 4776 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-11 18:46:49.242  INFO 4776 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-11 18:46:49.247  INFO 4776 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-09-11 18:46:49.333  INFO 4776 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-11 18:46:49.333  INFO 4776 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1826 ms
+2020-09-11 18:46:49.743  INFO 4776 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-09-11 18:46:49.911  INFO 4776 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-11 18:46:51.742  INFO 4776 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-11 18:46:52.157  INFO 4776 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-09-11 18:46:52.213  INFO 4776 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-11 18:46:52.793  INFO 4776 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-09-11 18:46:52.804  INFO 4776 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 6.142 seconds (JVM running for 8.163)
+2020-09-11 18:46:53.965  INFO 4776 --- [RMI TCP Connection(2)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-11 18:46:53.967  INFO 4776 --- [RMI TCP Connection(2)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-11 18:46:53.968  INFO 4776 --- [RMI TCP Connection(2)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2020-09-11 19:25:34.532  INFO 8768 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 8768 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
+2020-09-11 19:25:34.536  INFO 8768 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
+2020-09-11 19:25:35.720  INFO 8768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-11 19:25:35.723  INFO 8768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-11 19:25:35.743  INFO 8768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2020-09-11 19:25:36.144  INFO 8768 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-11 19:25:36.151  INFO 8768 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-11 19:25:36.152  INFO 8768 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-11 19:25:36.153  INFO 8768 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2020-09-11 19:25:36.153  INFO 8768 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-11 19:25:36.153  INFO 8768 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-11 19:25:36.167  INFO 8768 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-09-11 19:25:36.236  INFO 8768 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-11 19:25:36.236  INFO 8768 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1618 ms
+2020-09-11 19:25:36.605  INFO 8768 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-09-11 19:25:36.730  INFO 8768 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-11 19:25:38.531  INFO 8768 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-11 19:25:38.837  INFO 8768 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-09-11 19:25:38.892  INFO 8768 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-11 19:25:39.457  INFO 8768 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-09-11 19:25:39.466  INFO 8768 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 5.415 seconds (JVM running for 6.824)
+2020-09-11 19:25:39.909  INFO 8768 --- [RMI TCP Connection(1)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-11 19:25:39.910  INFO 8768 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-11 19:25:39.912  INFO 8768 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-09-11 19:34:44.723  INFO 6720 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 6720 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
+2020-09-11 19:34:44.727  INFO 6720 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
+2020-09-11 19:34:45.895  INFO 6720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-11 19:34:45.897  INFO 6720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-11 19:34:45.918  INFO 6720 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2020-09-11 19:34:46.403  INFO 6720 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-11 19:34:46.412  INFO 6720 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-11 19:34:46.413  INFO 6720 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-11 19:34:46.414  INFO 6720 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2020-09-11 19:34:46.414  INFO 6720 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-11 19:34:46.415  INFO 6720 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-11 19:34:46.429  INFO 6720 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-09-11 19:34:46.501  INFO 6720 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-11 19:34:46.501  INFO 6720 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1701 ms
+2020-09-11 19:34:46.839  INFO 6720 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-09-11 19:34:46.961  INFO 6720 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-11 19:34:48.429  INFO 6720 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-11 19:34:48.717  INFO 6720 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-09-11 19:34:48.760  INFO 6720 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-11 19:34:49.333  INFO 6720 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-09-11 19:34:49.342  INFO 6720 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 5.088 seconds (JVM running for 6.485)
+2020-09-11 19:34:49.972  INFO 6720 --- [RMI TCP Connection(1)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-11 19:34:49.973  INFO 6720 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-11 19:34:49.974  INFO 6720 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2020-09-11 20:16:26.895  INFO 19256 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 19256 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
+2020-09-11 20:16:26.898  INFO 19256 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
+2020-09-11 20:16:28.086  INFO 19256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-11 20:16:28.089  INFO 19256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-11 20:16:28.125  INFO 19256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2020-09-11 20:16:28.671  INFO 19256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-11 20:16:28.679  INFO 19256 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-11 20:16:28.680  INFO 19256 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-11 20:16:28.681  INFO 19256 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2020-09-11 20:16:28.681  INFO 19256 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-11 20:16:28.681  INFO 19256 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-11 20:16:28.696  INFO 19256 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-09-11 20:16:28.773  INFO 19256 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-11 20:16:28.775  INFO 19256 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1785 ms
+2020-09-11 20:16:29.237  INFO 19256 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-09-11 20:16:29.364  INFO 19256 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-11 20:16:31.288  INFO 19256 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-11 20:16:31.715  INFO 19256 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-09-11 20:16:31.771  INFO 19256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-11 20:16:32.222  INFO 19256 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-11 20:16:32.223  INFO 19256 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-11 20:16:32.225  INFO 19256 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-09-11 20:16:32.345  INFO 19256 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-09-11 20:16:32.353  INFO 19256 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 6.15 seconds (JVM running for 7.562)
+2020-09-11 20:21:14.653  INFO 1052 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 1052 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
+2020-09-11 20:21:14.656  INFO 1052 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
+2020-09-11 20:21:15.678  INFO 1052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-11 20:21:15.681  INFO 1052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-11 20:21:15.700  INFO 1052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2020-09-11 20:21:16.131  INFO 1052 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-11 20:21:16.140  INFO 1052 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-11 20:21:16.141  INFO 1052 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-11 20:21:16.143  INFO 1052 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2020-09-11 20:21:16.144  INFO 1052 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-11 20:21:16.144  INFO 1052 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-11 20:21:16.148  INFO 1052 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-09-11 20:21:16.232  INFO 1052 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-11 20:21:16.233  INFO 1052 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1511 ms
+2020-09-11 20:21:16.606  INFO 1052 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-09-11 20:21:16.717  INFO 1052 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-11 20:21:18.382  INFO 1052 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-11 20:21:18.903  INFO 1052 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-09-11 20:21:18.960  INFO 1052 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-11 20:21:19.528  INFO 1052 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-09-11 20:21:19.536  INFO 1052 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 5.316 seconds (JVM running for 6.611)
+2020-09-11 20:21:20.351  INFO 1052 --- [RMI TCP Connection(1)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-11 20:21:20.355  INFO 1052 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-11 20:21:20.357  INFO 1052 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-09-11 20:30:55.954  INFO 17504 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 17504 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
+2020-09-11 20:30:55.958  INFO 17504 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
+2020-09-11 20:30:57.087  INFO 17504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-11 20:30:57.090  INFO 17504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-11 20:30:57.111  INFO 17504 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2020-09-11 20:30:57.598  INFO 17504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-11 20:30:57.609  INFO 17504 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-11 20:30:57.609  INFO 17504 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-11 20:30:57.611  INFO 17504 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2020-09-11 20:30:57.611  INFO 17504 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-11 20:30:57.611  INFO 17504 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-11 20:30:57.625  INFO 17504 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-09-11 20:30:57.715  INFO 17504 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-11 20:30:57.716  INFO 17504 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1644 ms
+2020-09-11 20:30:58.177  INFO 17504 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-09-11 20:30:58.329  INFO 17504 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-11 20:31:00.226  INFO 17504 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-11 20:31:00.847  INFO 17504 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-09-11 20:31:00.919  INFO 17504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-11 20:31:01.493  INFO 17504 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-09-11 20:31:01.503  INFO 17504 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 6.36 seconds (JVM running for 7.788)
+2020-09-11 20:31:02.148  INFO 17504 --- [RMI TCP Connection(1)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-11 20:31:02.149  INFO 17504 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-11 20:31:02.151  INFO 17504 --- [RMI TCP Connection(1)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-09-11 21:05:59.341  INFO 3188 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 3188 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
+2020-09-11 21:05:59.347  INFO 3188 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
+2020-09-11 21:06:00.660  INFO 3188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-11 21:06:00.664  INFO 3188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-11 21:06:00.692  INFO 3188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2020-09-11 21:06:01.259  INFO 3188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-11 21:06:01.270  INFO 3188 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-11 21:06:01.271  INFO 3188 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-11 21:06:01.274  INFO 3188 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2020-09-11 21:06:01.275  INFO 3188 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-11 21:06:01.275  INFO 3188 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-11 21:06:01.293  INFO 3188 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-09-11 21:06:01.388  INFO 3188 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-11 21:06:01.388  INFO 3188 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1944 ms
+2020-09-11 21:06:01.823  INFO 3188 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-09-11 21:06:01.968  INFO 3188 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-11 21:06:03.735  INFO 3188 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-11 21:06:04.180  INFO 3188 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-09-11 21:06:04.232  INFO 3188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-11 21:06:04.802  INFO 3188 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-09-11 21:06:04.812  INFO 3188 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 6.226 seconds (JVM running for 8.22)
+2020-09-11 21:06:06.404  INFO 3188 --- [RMI TCP Connection(3)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-11 21:06:06.404  INFO 3188 --- [RMI TCP Connection(3)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-11 21:06:06.406  INFO 3188 --- [RMI TCP Connection(3)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2020-09-11 21:06:14.057 ERROR 3188 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'mall.mmall_cart' doesn't exist
+### The error may exist in file [D:\WorkSpace\mall-modified\mall-mbg\target\classes\cn\zhang\mallmodified\mapper\CartDao.xml]
+### The error may involve cn.zhang.mallmodified.dao.CartDao.selectCartProductNumByUserId-Inline
+### The error occurred while setting parameters
+### SQL: select IFNULL(sum(quantity),0) as count from mmall_cart where user_id = ?
+### Cause: java.sql.SQLSyntaxErrorException: Table 'mall.mmall_cart' doesn't exist
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Table 'mall.mmall_cart' doesn't exist] with root cause
+
+java.sql.SQLSyntaxErrorException: Table 'mall.mmall_cart' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:955) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:372) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3409) ~[druid-1.1.10.jar:1.1.10]
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440) ~[druid-1.1.10.jar:1.1.10]
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3407) ~[druid-1.1.10.jar:1.1.10]
+	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:167) ~[druid-1.1.10.jar:1.1.10]
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.1.jar:3.5.1]
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) ~[pagehelper-5.1.10.jar:na]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61) ~[mybatis-3.5.1.jar:3.5.1]
+	at com.sun.proxy.$Proxy115.query(Unknown Source) ~[na:na]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76) ~[mybatis-3.5.1.jar:3.5.1]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433) ~[mybatis-spring-2.0.1.jar:2.0.1]
+	at com.sun.proxy.$Proxy85.selectOne(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:166) ~[mybatis-spring-2.0.1.jar:2.0.1]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:58) ~[mybatis-3.5.1.jar:3.5.1]
+	at com.sun.proxy.$Proxy91.selectCartProductNumByUserId(Unknown Source) ~[na:na]
+	at cn.zhang.mallmodified.service.impl.CartServiceImpl.getCartProductNum(CartServiceImpl.java:129) ~[classes/:na]
+	at cn.zhang.mallmodified.controller.portal.CartController.getCartProductNum(CartController.java:99) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:802) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.37.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.37.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:141) ~[spring-session-core-2.4.0-M1.jar:2.4.0-M1]
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:82) ~[spring-session-core-2.4.0-M1.jar:2.4.0-M1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2020-09-11 21:06:19.164 ERROR 3188 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'mall.mmall_cart' doesn't exist
+### The error may exist in file [D:\WorkSpace\mall-modified\mall-mbg\target\classes\cn\zhang\mallmodified\mapper\CartDao.xml]
+### The error may involve cn.zhang.mallmodified.dao.CartDao.selectCartProductNumByUserId-Inline
+### The error occurred while setting parameters
+### SQL: select IFNULL(sum(quantity),0) as count from mmall_cart where user_id = ?
+### Cause: java.sql.SQLSyntaxErrorException: Table 'mall.mmall_cart' doesn't exist
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Table 'mall.mmall_cart' doesn't exist] with root cause
+
+java.sql.SQLSyntaxErrorException: Table 'mall.mmall_cart' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:955) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:372) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3409) ~[druid-1.1.10.jar:1.1.10]
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440) ~[druid-1.1.10.jar:1.1.10]
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3407) ~[druid-1.1.10.jar:1.1.10]
+	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:167) ~[druid-1.1.10.jar:1.1.10]
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.1.jar:3.5.1]
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:108) ~[pagehelper-5.1.10.jar:na]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61) ~[mybatis-3.5.1.jar:3.5.1]
+	at com.sun.proxy.$Proxy115.query(Unknown Source) ~[na:na]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:76) ~[mybatis-3.5.1.jar:3.5.1]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433) ~[mybatis-spring-2.0.1.jar:2.0.1]
+	at com.sun.proxy.$Proxy85.selectOne(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:166) ~[mybatis-spring-2.0.1.jar:2.0.1]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87) ~[mybatis-3.5.1.jar:3.5.1]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:58) ~[mybatis-3.5.1.jar:3.5.1]
+	at com.sun.proxy.$Proxy91.selectCartProductNumByUserId(Unknown Source) ~[na:na]
+	at cn.zhang.mallmodified.service.impl.CartServiceImpl.getCartProductNum(CartServiceImpl.java:129) ~[classes/:na]
+	at cn.zhang.mallmodified.controller.portal.CartController.getCartProductNum(CartController.java:99) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:802) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.37.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.37.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.session.web.http.SessionRepositoryFilter.doFilterInternal(SessionRepositoryFilter.java:141) ~[spring-session-core-2.4.0-M1.jar:2.4.0-M1]
+	at org.springframework.session.web.http.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:82) ~[spring-session-core-2.4.0-M1.jar:2.4.0-M1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93) ~[spring-boot-actuator-2.4.0-20200909.120213-427.jar:2.4.0-SNAPSHOT]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.0-20200908.153059-364.jar:5.3.0-SNAPSHOT]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2020-09-11 21:06:47.717  INFO 19848 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 19848 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
+2020-09-11 21:06:47.721  INFO 19848 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
+2020-09-11 21:06:48.871  INFO 19848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-11 21:06:48.874  INFO 19848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-11 21:06:48.895  INFO 19848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2020-09-11 21:06:49.347  INFO 19848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-11 21:06:49.355  INFO 19848 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-11 21:06:49.356  INFO 19848 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-11 21:06:49.357  INFO 19848 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2020-09-11 21:06:49.357  INFO 19848 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-11 21:06:49.357  INFO 19848 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-11 21:06:49.361  INFO 19848 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-09-11 21:06:49.437  INFO 19848 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-11 21:06:49.437  INFO 19848 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1649 ms
+2020-09-11 21:06:49.842  INFO 19848 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-09-11 21:06:49.985  INFO 19848 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-11 21:06:51.752  INFO 19848 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-11 21:06:52.080  INFO 19848 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-09-11 21:06:52.127  INFO 19848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-11 21:06:52.711  INFO 19848 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-09-11 21:06:52.721  INFO 19848 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 5.539 seconds (JVM running for 6.945)
+2020-09-11 21:06:53.990  INFO 19848 --- [RMI TCP Connection(3)-169.254.238.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-11 21:06:53.994  INFO 19848 --- [RMI TCP Connection(3)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-11 21:06:53.997  INFO 19848 --- [RMI TCP Connection(3)-169.254.238.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms

@@ -1,7 +1,7 @@
 package cn.zhang.mallmodified.service.impl;
 
 import cn.zhang.mallmodified.common.api.ServerResponse;
-import cn.zhang.mallmodified.model.User;
+import cn.zhang.mallmodified.po.User;
 import cn.zhang.mallmodified.service.ICommonService;
 import cn.zhang.mallmodified.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;

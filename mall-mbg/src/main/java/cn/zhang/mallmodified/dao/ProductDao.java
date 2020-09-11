@@ -1,6 +1,6 @@
 package cn.zhang.mallmodified.dao;
 
-import cn.zhang.mallmodified.model.Product;
+import cn.zhang.mallmodified.po.Product;
 
 import java.util.List;
 
@@ -17,7 +17,9 @@ public interface ProductDao {
 
     int updateByPrimaryKey(Product record);
 
+    /**
+     * 获取全部产品信息
+     * @return
+     */
     List<Product> selectAllProducts();
-
-
 }

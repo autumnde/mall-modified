@@ -2,7 +2,7 @@ package cn.zhang.mallmodified.controller.backend;
 
 import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.common.utils.FtpUtils;
-import cn.zhang.mallmodified.model.Product;
+import cn.zhang.mallmodified.po.Product;
 import cn.zhang.mallmodified.service.ICommonService;
 import cn.zhang.mallmodified.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;

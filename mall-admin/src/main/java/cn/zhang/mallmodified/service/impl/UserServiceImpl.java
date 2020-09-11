@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.zhang.mallmodified.common.api.Const;
 import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.dao.UserDao;
-import cn.zhang.mallmodified.model.User;
+import cn.zhang.mallmodified.po.User;
 import cn.zhang.mallmodified.service.IRedisService;
 import cn.zhang.mallmodified.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;

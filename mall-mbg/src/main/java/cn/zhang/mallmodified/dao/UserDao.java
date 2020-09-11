@@ -1,6 +1,6 @@
 package cn.zhang.mallmodified.dao;
 
-import cn.zhang.mallmodified.model.User;
+import cn.zhang.mallmodified.po.User;
 
 public interface UserDao {
     int deleteByPrimaryKey(Integer id);

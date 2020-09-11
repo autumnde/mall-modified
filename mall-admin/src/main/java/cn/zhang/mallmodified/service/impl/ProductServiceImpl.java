@@ -5,16 +5,15 @@ import cn.hutool.core.util.StrUtil;
 import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.dao.CategoryDao;
 import cn.zhang.mallmodified.dao.ProductDao;
-import cn.zhang.mallmodified.model.Category;
-import cn.zhang.mallmodified.model.Product;
+import cn.zhang.mallmodified.po.Category;
+import cn.zhang.mallmodified.po.Product;
 import cn.zhang.mallmodified.service.IProductService;
-import cn.zhang.mallmodified.vo.ProductDetailVo;
+import cn.zhang.mallmodified.vo.ProductVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,7 +74,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public ServerResponse<ProductDetailVo> getProductDetail(Integer productId) {
+    public ServerResponse<ProductVo> getProductDetail(Integer productId) {
         if(productId == null){
             return ServerResponse.createByErrorMessage("参数错误");
         }
@@ -84,35 +83,35 @@ public class ProductServiceImpl implements IProductService {
         if(product == null){
             return ServerResponse.createByErrorMessage("产品不存在");
         }
-        ProductDetailVo productDetailVo = new ProductDetailVo(product);
-        productDetailVo.setImageHost(FTP_SERVER_HOST);
+        ProductVo productVo = new ProductVo(product);
+        productVo.setImageHost(FTP_SERVER_HOST);
 
         Category category = categoryDao.selectByPrimaryKey(product.getCategoryId());
         if(category == null){
-            productDetailVo.setParentCategoryId(0);
+            productVo.setParentCategoryId(0);
         }
         else{
-            productDetailVo.setParentCategoryId(category.getParentId());
+            productVo.setParentCategoryId(category.getParentId());
         }
-        productDetailVo.setCreateTime(DateUtil.dateNew(product.getCreateTime()).toString());
-        productDetailVo.setUpdateTime(DateUtil.dateNew(product.getUpdateTime()).toString());
-        return ServerResponse.createBySuccess(productDetailVo);
+        productVo.setCreateTime(DateUtil.dateNew(product.getCreateTime()).toString());
+        productVo.setUpdateTime(DateUtil.dateNew(product.getUpdateTime()).toString());
+        return ServerResponse.createBySuccess(productVo);
     }
 
     @Override
     public ServerResponse<PageInfo> getProductList(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum,pageSize);
         List<Product> productList = productDao.selectAllProducts();
-        List<ProductDetailVo> productDetailVoList = new ArrayList<>();
+        List<ProductVo> productVoList = new ArrayList<>();
         for(Product product:productList){
-            ProductDetailVo productDetailVo = new ProductDetailVo(product);
-            productDetailVo.setImageHost(FTP_SERVER_HOST);
-            productDetailVo.setCreateTime(DateUtil.dateNew(product.getCreateTime()).toString());
-            productDetailVo.setUpdateTime(DateUtil.dateNew(product.getUpdateTime()).toString());
-            productDetailVoList.add(productDetailVo);
+            ProductVo productVo = new ProductVo(product);
+            productVo.setImageHost(FTP_SERVER_HOST);
+            productVo.setCreateTime(DateUtil.dateNew(product.getCreateTime()).toString());
+            productVo.setUpdateTime(DateUtil.dateNew(product.getUpdateTime()).toString());
+            productVoList.add(productVo);
         }
         PageInfo pageInfo = new PageInfo(productList);
-        pageInfo.setList(productDetailVoList);
+        pageInfo.setList(productVoList);
         return ServerResponse.createBySuccess(pageInfo);
     }
 }

@@ -1,16 +1,15 @@
 package cn.zhang.mallmodified.vo;
 
-import cn.zhang.mallmodified.model.Product;
+import cn.zhang.mallmodified.po.Product;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  * @author autum
  */
 @Data
-public class ProductDetailVo {
+public class ProductVo {
     /**
      * 商品id
      */
@@ -80,7 +79,11 @@ public class ProductDetailVo {
      */
     private String imageHost;
 
-    public ProductDetailVo(Product product) {
+    /**
+     * Product转化为ProductVo
+     * @param product
+     */
+    public ProductVo(Product product) {
         this.setId(product.getId());
         this.setSubtitle(product.getSubtitle());
         this.setPrice(product.getPrice());
