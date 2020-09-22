@@ -1,14 +1,18 @@
 package cn.zhang.mallmodified.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.zhang.mallmodified.common.api.Const;
 import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.dao.CategoryDao;
 import cn.zhang.mallmodified.dao.ProductDao;
 import cn.zhang.mallmodified.po.Category;
 import cn.zhang.mallmodified.po.Product;
+import cn.zhang.mallmodified.service.ICommonService;
 import cn.zhang.mallmodified.service.IProductService;
-import cn.zhang.mallmodified.vo.ProductVo;
+import cn.zhang.mallmodified.vo.ProductDetailVo;
+import cn.zhang.mallmodified.vo.ProductListVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +31,8 @@ public class ProductServiceImpl implements IProductService {
     private ProductDao productDao;
     @Autowired
     private CategoryDao categoryDao;
+    @Autowired
+    private ICommonService commonService;
     @Value(value = "${ftp.server.host}")
     private String FTP_SERVER_HOST;
 
@@ -74,7 +80,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public ServerResponse<ProductVo> getProductDetail(Integer productId) {
+    public ServerResponse<ProductDetailVo> getProductDetail(Integer productId) {
         if(productId == null){
             return ServerResponse.createByErrorMessage("参数错误");
         }
@@ -83,35 +89,67 @@ public class ProductServiceImpl implements IProductService {
         if(product == null){
             return ServerResponse.createByErrorMessage("产品不存在");
         }
-        ProductVo productVo = new ProductVo(product);
-        productVo.setImageHost(FTP_SERVER_HOST);
-
-        Category category = categoryDao.selectByPrimaryKey(product.getCategoryId());
-        if(category == null){
-            productVo.setParentCategoryId(0);
+        if(product.getStatus() != Const.ProductStatusEnum.ON_SALE.getCode()){
+            return ServerResponse.createByErrorMessage("产品已下架或者删除");
         }
-        else{
-            productVo.setParentCategoryId(category.getParentId());
-        }
-        productVo.setCreateTime(DateUtil.dateNew(product.getCreateTime()).toString());
-        productVo.setUpdateTime(DateUtil.dateNew(product.getUpdateTime()).toString());
-        return ServerResponse.createBySuccess(productVo);
+        ProductDetailVo productDetailVo = assembleProductDetailVo(product);
+        return ServerResponse.createBySuccess(productDetailVo);
     }
 
     @Override
     public ServerResponse<PageInfo> getProductList(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum,pageSize);
         List<Product> productList = productDao.selectAllProducts();
-        List<ProductVo> productVoList = new ArrayList<>();
+        List<ProductDetailVo> productVoList = new ArrayList<>();
         for(Product product:productList){
-            ProductVo productVo = new ProductVo(product);
-            productVo.setImageHost(FTP_SERVER_HOST);
-            productVo.setCreateTime(DateUtil.dateNew(product.getCreateTime()).toString());
-            productVo.setUpdateTime(DateUtil.dateNew(product.getUpdateTime()).toString());
+            ProductDetailVo productVo = assembleProductDetailVo(product);
             productVoList.add(productVo);
         }
         PageInfo pageInfo = new PageInfo(productList);
         pageInfo.setList(productVoList);
         return ServerResponse.createBySuccess(pageInfo);
+    }
+
+    @Override
+    public ServerResponse<PageInfo> searchProduct(String productName,Integer productId,int pageNum,int pageSize){
+        PageHelper.startPage(pageNum,pageSize);
+        if(StrUtil.isNotBlank(productName)){
+            productName = new StringBuilder().append("%").append(productName).append("%").toString();
+        }
+        List<Product> productList = productDao.selectByNameAndProductId(productName,productId);
+        List<ProductListVo> productListVoList = CollUtil.newArrayList();
+        for(Product productItem : productList){
+            ProductListVo productListVo = commonService.assembleProductListVo(productItem);
+            productListVoList.add(productListVo);
+        }
+        PageInfo pageResult = new PageInfo(productList);
+        pageResult.setList(productListVoList);
+        return ServerResponse.createBySuccess(pageResult);
+    }
+
+    private ProductDetailVo assembleProductDetailVo(Product product){
+        ProductDetailVo productDetailVo = new ProductDetailVo();
+        productDetailVo.setId(product.getId());
+        productDetailVo.setSubtitle(product.getSubtitle());
+        productDetailVo.setPrice(product.getPrice());
+        productDetailVo.setMainImage(product.getMainImage());
+        productDetailVo.setSubImages(product.getSubImages());
+        productDetailVo.setCategoryId(product.getCategoryId());
+        productDetailVo.setDetail(product.getDetail());
+        productDetailVo.setName(product.getName());
+        productDetailVo.setStatus(product.getStatus());
+        productDetailVo.setStock(product.getStock());
+        productDetailVo.setImageHost(FTP_SERVER_HOST);
+
+        Category category = categoryDao.selectByPrimaryKey(product.getCategoryId());
+        if(category == null){
+            //默认根节点
+            productDetailVo.setParentCategoryId(0);
+        }else{
+            productDetailVo.setParentCategoryId(category.getParentId());
+        }
+        productDetailVo.setCreateTime(DateUtil.formatDateTime(product.getCreateTime()));
+        productDetailVo.setUpdateTime(DateUtil.formatDateTime(product.getUpdateTime()));
+        return productDetailVo;
     }
 }

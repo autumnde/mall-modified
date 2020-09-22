@@ -1,9 +1,11 @@
 package cn.zhang.mallmodified.dao;
 
 import cn.zhang.mallmodified.po.Category;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface CategoryDao {
     int deleteByPrimaryKey(Integer id);
 

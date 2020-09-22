@@ -1,7 +1,9 @@
 package cn.zhang.mallmodified.dao;
 
 import cn.zhang.mallmodified.po.User;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserDao {
     int deleteByPrimaryKey(Integer id);
 
@@ -32,4 +34,6 @@ public interface UserDao {
     int checkPassword(String username,String password);
 
     int checkEmailByUsername(String username,String email);
+
+    User selectUserByUsername(String username);
 }

@@ -1,11 +1,16 @@
 package cn.zhang.mallmodified.controller.backend;
 
+import cn.zhang.mallmodified.common.api.ResponseCode;
 import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.common.utils.FtpUtils;
 import cn.zhang.mallmodified.po.Product;
+import cn.zhang.mallmodified.po.User;
+import cn.zhang.mallmodified.security.AdminUserDetails;
 import cn.zhang.mallmodified.service.ICommonService;
 import cn.zhang.mallmodified.service.IProductService;
+import cn.zhang.mallmodified.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.security.Principal;
 
 /**
  * @author autum
@@ -24,6 +30,8 @@ public class ProductManagerController {
     private IProductService productService;
     @Autowired
     private ICommonService commonService;
+    @Autowired
+    private IUserService userService;
     @Autowired
     FtpUtils ftpUtils;
 
@@ -37,13 +45,13 @@ public class ProductManagerController {
 
     }
 
-    @RequestMapping("setProductState.do")
-    public ServerResponse setProductState(HttpSession httpSession,Integer productId,Integer state){
+    @RequestMapping("set_sale_status.do")
+    public ServerResponse setProductState(HttpSession httpSession,Integer productId,Integer status){
         ServerResponse tempResponse = commonService.AdminJudge(httpSession);
         if(!tempResponse.isSuccess()){
             return tempResponse;
         }
-        return productService.setProductStae(productId,state);
+        return productService.setProductStae(productId,status);
     }
 
     @RequestMapping("detail.do")
@@ -77,5 +85,22 @@ public class ProductManagerController {
         return ftpUtils.upload(file);
     }
 
+    @RequestMapping("search.do")
+    public ServerResponse productSearch(Principal principal, String productName, Integer productId,
+                                        @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
+                                        @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
+        if(principal ==null){
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
+        }
+        Authentication auth = (Authentication) principal;
+        AdminUserDetails adminUserDetails = (AdminUserDetails)auth.getPrincipal();
+        User user = adminUserDetails.getUser();
+        if(userService.checkAdminRole(user).isSuccess()){
+            //填充业务
+            return productService.searchProduct(productName,productId,pageNum,pageSize);
+        }else{
+            return ServerResponse.createByErrorMessage("无权限操作");
+        }
+    }
 
 }

@@ -1,15 +1,40 @@
 package cn.zhang.mallmodified.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.zhang.mallmodified.common.api.Const;
 import cn.zhang.mallmodified.common.api.ServerResponse;
+import cn.zhang.mallmodified.common.utils.JwtTokenUtil;
+import cn.zhang.mallmodified.dao.OrderDao;
+import cn.zhang.mallmodified.dao.OrderItemDao;
+import cn.zhang.mallmodified.dao.ShippingDao;
 import cn.zhang.mallmodified.dao.UserDao;
+import cn.zhang.mallmodified.po.Order;
+import cn.zhang.mallmodified.po.OrderItem;
+import cn.zhang.mallmodified.po.Shipping;
 import cn.zhang.mallmodified.po.User;
+import cn.zhang.mallmodified.security.AdminUserDetails;
+import cn.zhang.mallmodified.service.ICommonService;
 import cn.zhang.mallmodified.service.IRedisService;
 import cn.zhang.mallmodified.service.IUserService;
+import cn.zhang.mallmodified.vo.OrderItemVo;
+import cn.zhang.mallmodified.vo.OrderVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author autum
@@ -22,20 +47,36 @@ public class UserServiceImpl implements IUserService {
     private IRedisService redisService;
     @Autowired
     private MailService mailService;
+    @Autowired
+    private UserDetailsService userDetailsService;
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private OrderDao orderDao;
+    @Autowired
+    private OrderItemDao orderItemDao;
+    @Autowired
+    private ICommonService commonService;
 
     @Override
-    public ServerResponse<User> login(String username, String password) {
+    public ServerResponse login(String username, String password) {
+        String token = null;
         int usernameCount = userDao.checkUsername(username);
 
         if(usernameCount == 0){
             return ServerResponse.createByErrorMessage("用户名不存在");
         }
-
-        User user = userDao.selectByUsernamePassword(username,password);
-        if(user == null){
-            return ServerResponse.createByErrorMessage("用户密码错误");
+        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+        if (!passwordEncoder.matches(password, userDetails.getPassword())) {
+            return ServerResponse.createByError();
         }
-        return ServerResponse.createBySuccess("用户登陆成功",user);
+
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+        token = jwtTokenUtil.generateToken(userDetails);
+        return ServerResponse.createByToken(token);
     }
 
     @Override
@@ -139,6 +180,34 @@ public class UserServiceImpl implements IUserService {
             return ServerResponse.createBySuccess();
         }
         return ServerResponse.createByError();
+    }
+
+    @Override
+    public ServerResponse getUserByUsername(String username) {
+        User user = userDao.selectUserByUsername(username);
+        if(user == null){
+            return ServerResponse.createByError();
+        }
+        return ServerResponse.createBySuccess(user);
+    }
+
+    @Override
+    public ServerResponse getCurrentUser() {
+        SecurityContext context = SecurityContextHolder.getContext();
+        Authentication authentication = context.getAuthentication();
+        AdminUserDetails adminUserDetails = (AdminUserDetails) authentication.getPrincipal();
+        return ServerResponse.createBySuccess(adminUserDetails.getUser());
+    }
+
+    @Override
+    public ServerResponse<OrderVo> manageDetail(Long orderNo){
+        Order order = orderDao.selectByOrderNo(orderNo);
+        if(order != null){
+            List<OrderItem> orderItemList = orderItemDao.selectByOrderNo(orderNo);
+            OrderVo orderVo = commonService.assembleOrderVo(order,orderItemList);
+            return ServerResponse.createBySuccess(orderVo);
+        }
+        return ServerResponse.createByErrorMessage("订单不存在");
     }
 
     public ServerResponse<String> checkValid(String value,String type){

@@ -1,9 +1,11 @@
 package cn.zhang.mallmodified.dao;
 
 import cn.zhang.mallmodified.po.Product;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface ProductDao {
     int deleteByPrimaryKey(Integer id);
 
@@ -17,9 +19,7 @@ public interface ProductDao {
 
     int updateByPrimaryKey(Product record);
 
-    /**
-     * 获取全部产品信息
-     * @return
-     */
     List<Product> selectAllProducts();
+
+    List<Product> selectByNameAndProductId(String productName,Integer productId);
 }

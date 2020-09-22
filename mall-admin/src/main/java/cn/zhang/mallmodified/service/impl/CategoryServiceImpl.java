@@ -80,7 +80,6 @@ public class CategoryServiceImpl implements ICategoryService {
         return ServerResponse.createBySuccess(categoryList);
     }
 
-
     /**
      * 辅助方法，递归查询所有的子节点
      * @param id

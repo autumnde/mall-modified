@@ -2,6 +2,7 @@ package cn.zhang.mallmodified.service;
 
 import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.po.Product;
+import com.github.pagehelper.PageInfo;
 
 /**
  * @author autum
@@ -36,4 +37,6 @@ public interface IProductService {
      * @return
      */
     public ServerResponse getProductList(int pageNum,int pageSize);
+
+    ServerResponse<PageInfo> searchProduct(String productName, Integer productId, int pageNum, int pageSize);
 }

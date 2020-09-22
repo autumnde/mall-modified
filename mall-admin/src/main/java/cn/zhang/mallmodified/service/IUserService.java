@@ -2,6 +2,9 @@ package cn.zhang.mallmodified.service;
 
 import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.po.User;
+import cn.zhang.mallmodified.vo.OrderVo;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  * @author autum
@@ -69,4 +72,15 @@ public interface IUserService {
      * @return
      */
     ServerResponse checkAdminRole(User user);
+
+    /**
+     * 根据用户名获取用户
+     * @param username
+     * @return
+     */
+    ServerResponse getUserByUsername(String username);
+
+    ServerResponse getCurrentUser();
+
+    ServerResponse<OrderVo> manageDetail(Long orderNo);
 }

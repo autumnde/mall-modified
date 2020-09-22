@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 import java.util.Date;
 import lombok.Data;
 
-
 /**
- * @author autum
+ * product
+ * @author 
  */
 @Data
 public class Product implements Serializable {
@@ -70,6 +70,11 @@ public class Product implements Serializable {
      * 更新时间
      */
     private Date updateTime;
+
+    /**
+     * 锁定库存
+     */
+    private Integer lockStock;
 
     private static final long serialVersionUID = 1L;
 }

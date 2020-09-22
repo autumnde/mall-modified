@@ -1,9 +1,11 @@
 package cn.zhang.mallmodified.dao;
 
 import cn.zhang.mallmodified.po.Cart;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface CartDao {
     int deleteByPrimaryKey(Integer id);
 
@@ -40,5 +42,12 @@ public interface CartDao {
     int checkedOrUncheckedProduct(Integer userId,Integer productId,Integer checked);
 
     int selectCartProductNumByUserId(Integer userId);
+
+    /**
+     * 获取某用户已勾选的所有商品
+     * @param userId
+     * @return
+     */
+    List<Cart> selectCheckedCartByUserId(Integer userId);
 
 }

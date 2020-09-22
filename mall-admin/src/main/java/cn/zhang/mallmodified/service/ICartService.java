@@ -1,8 +1,6 @@
 package cn.zhang.mallmodified.service;
 
-
 import cn.zhang.mallmodified.vo.CartVo;
-import java.util.List;
 
 /**
  * @author autum
@@ -54,5 +52,10 @@ public interface ICartService {
      */
     public CartVo selectOrUnselectAll(Integer userId,Integer checked);
 
+    /**
+     * 获取购物车内所有商品合计的数量
+     * @param userId
+     * @return
+     */
     public int getCartProductNum(Integer userId);
 }

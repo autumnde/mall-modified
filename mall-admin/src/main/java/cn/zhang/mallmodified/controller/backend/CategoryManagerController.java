@@ -22,7 +22,7 @@ public class CategoryManagerController {
     @Autowired
     private ICategoryService categoryService;
 
-    @RequestMapping("addCategory.do")
+    @RequestMapping("add_category.do")
     public ServerResponse addCategory(HttpSession httpSession, String categoryName, @RequestParam(defaultValue = "0")int parentId){
         User user = (User) httpSession.getAttribute("currentUser");
         if(user == null){
@@ -35,7 +35,7 @@ public class CategoryManagerController {
         return categoryService.addCategory(categoryName,parentId);
     }
 
-    @RequestMapping("updateCategoryName.do")
+    @RequestMapping("set_category_name.do")
     public ServerResponse updateCategoryName(HttpSession httpSession,Integer categoryId,String categoryName){
         User user = (User)httpSession.getAttribute("currentUser");
         if(user == null){
@@ -47,7 +47,7 @@ public class CategoryManagerController {
         return categoryService.updateCategoryName(categoryId,categoryName);
     }
 
-    @RequestMapping("getChildrenCategory.do")
+    @RequestMapping("get_category.do")
     public ServerResponse getChildrenCategory(HttpSession httpSession,Integer parentId){
         User user = (User)httpSession.getAttribute("currentUser");
         if(user == null){
@@ -59,7 +59,7 @@ public class CategoryManagerController {
         return categoryService.getChildCategoryOf(parentId);
     }
 
-    @RequestMapping("getAllChildrenCategory.do")
+    @RequestMapping("get_deep_category.do")
     public ServerResponse getAllChildrenCategory(HttpSession httpSession,Integer parentId){
         User user = (User)httpSession.getAttribute("currentUser");
         if(user == null){

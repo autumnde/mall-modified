@@ -36,4 +36,9 @@ public class RedisServiceImpl implements IRedisService {
     public Long increment(String key, long delta) {
         return stringRedisTemplate.opsForValue().increment(key,delta);
     }
+
+    @Override
+    public boolean lock() {
+        return false;
+    }
 }

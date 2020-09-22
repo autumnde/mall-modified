@@ -30,4 +30,10 @@ public interface IRedisService {
      */
     Long increment(String key, long delta);
 
+    /**
+     * redis上分布式锁
+     * @return
+     */
+    public boolean lock();
+
 }
