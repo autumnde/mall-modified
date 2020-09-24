@@ -29,7 +29,7 @@ public interface ICartService {
     public CartVo updateCart(Integer userId,Integer productId,int count);
 
     /**
-     * 删除购物车内某个商品
+     * 删除购物车内多个商品
      * @param userId
      * @param productIds
      * @return

@@ -5,13 +5,13 @@ import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.po.User;
 import cn.zhang.mallmodified.security.AdminUserDetails;
 import cn.zhang.mallmodified.service.IOrderService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
@@ -19,6 +19,7 @@ import java.security.Principal;
 /**
  * @author autum
  */
+@Api(tags = "订单API")
 @CrossOrigin
 @RestController
 @RequestMapping("/order/")
@@ -26,8 +27,9 @@ public class OrderController {
     @Autowired
     private IOrderService orderService;
 
-    @RequestMapping("create.do")
-    public ServerResponse create(Principal principal,Integer shippingId){
+    @ApiOperation("根据收货地址创建订单")
+    @RequestMapping(value = "create.do",method = RequestMethod.GET)
+    public ServerResponse create(Principal principal, @ApiParam("收货地址id")Integer shippingId){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -37,8 +39,9 @@ public class OrderController {
         return orderService.createOrder(user.getId(),shippingId);
     }
 
-    @RequestMapping("cancel.do")
-    public ServerResponse cancel(Principal principal,Long orderNo){
+    @ApiOperation("根据订单No取消订单")
+    @RequestMapping(value = "cancel.do",method = RequestMethod.GET)
+    public ServerResponse cancel(Principal principal,@ApiParam("订单No")Long orderNo){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -46,7 +49,8 @@ public class OrderController {
         return ServerResponse.createBySuccess();
     }
 
-    @RequestMapping("get_order_cart_product.do")
+    @ApiOperation("获取订单购物车内的产品")
+    @RequestMapping(value = "get_order_cart_product.do", method = RequestMethod.GET)
     public ServerResponse getOrderCartProduct(Principal principal){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
@@ -57,8 +61,11 @@ public class OrderController {
         return orderService.getOrderCartProduct(user.getId());
     }
 
-    @RequestMapping("list.do")
-    public ServerResponse list(Principal principal, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum, @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
+    @ApiOperation("获取订单列表")
+    @RequestMapping(value = "list.do",method = RequestMethod.GET)
+    public ServerResponse list(Principal principal,
+                               @RequestParam(value = "pageNum",defaultValue = "1") @ApiParam("列表页数") int pageNum,
+                               @RequestParam(value = "pageSize",defaultValue = "10") @ApiParam("每页展示的数量")int pageSize){
         Authentication auth = (Authentication) principal;
         AdminUserDetails adminUserDetails = (AdminUserDetails)auth.getPrincipal();
         User user = adminUserDetails.getUser();
@@ -68,8 +75,9 @@ public class OrderController {
         return orderService.getOrderList(user.getId(),pageNum,pageSize);
     }
 
-    @RequestMapping("detail.do")
-    public ServerResponse detail(Principal principal,Long orderNo){
+    @ApiOperation("获取对应No的订单详细信息")
+    @RequestMapping(value = "detail.do",method = RequestMethod.GET)
+    public ServerResponse detail(Principal principal,@ApiParam("订单No")Long orderNo){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -78,6 +86,4 @@ public class OrderController {
         User user = adminUserDetails.getUser();
         return orderService.getOrderDetail(user.getId(),orderNo);
     }
-
-
 }

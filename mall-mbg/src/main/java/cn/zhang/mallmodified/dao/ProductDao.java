@@ -1,6 +1,7 @@
 package cn.zhang.mallmodified.dao;
 
 import cn.zhang.mallmodified.po.Product;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,4 +23,6 @@ public interface ProductDao {
     List<Product> selectAllProducts();
 
     List<Product> selectByNameAndProductId(String productName,Integer productId);
+
+    List<Product> selectByNameAndCategoryIds(@Param("productName")String productName, @Param("categoryIdList")List<Integer> categoryIdList);
 }

@@ -1,20 +1,28 @@
 package cn.zhang.mallmodified.controller.backend;
 
+import cn.zhang.mallmodified.common.api.ResponseCode;
 import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.po.User;
+import cn.zhang.mallmodified.security.AdminUserDetails;
 import cn.zhang.mallmodified.service.ICategoryService;
 import cn.zhang.mallmodified.service.IUserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.security.Principal;
 
 /**
  * @author autum
  */
 @RestController
+@Api(tags = "分类管理API")
 @RequestMapping("/manager/category")
 public class CategoryManagerController {
     @Autowired
@@ -22,12 +30,16 @@ public class CategoryManagerController {
     @Autowired
     private ICategoryService categoryService;
 
+    @ApiOperation("添加分类")
     @RequestMapping("add_category.do")
-    public ServerResponse addCategory(HttpSession httpSession, String categoryName, @RequestParam(defaultValue = "0")int parentId){
-        User user = (User) httpSession.getAttribute("currentUser");
-        if(user == null){
-            return ServerResponse.createByErrorMessage("用户未登陆");
+    public ServerResponse addCategory(Principal principal, @ApiParam("分类姓名")String categoryName,
+                                      @RequestParam(defaultValue = "0")  @ApiParam("该分类父节点编号（默认为0）")int parentId){
+        if(principal ==null){
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
+        Authentication auth = (Authentication) principal;
+        AdminUserDetails adminUserDetails = (AdminUserDetails)auth.getPrincipal();
+        User user = adminUserDetails.getUser();
         ServerResponse response1 = userService.checkAdminRole(user);
         if(!response1.isSuccess()){
             return ServerResponse.createByErrorMessage("无管理员权限");
@@ -35,36 +47,45 @@ public class CategoryManagerController {
         return categoryService.addCategory(categoryName,parentId);
     }
 
+    @ApiOperation("设置分类姓名")
     @RequestMapping("set_category_name.do")
-    public ServerResponse updateCategoryName(HttpSession httpSession,Integer categoryId,String categoryName){
-        User user = (User)httpSession.getAttribute("currentUser");
-        if(user == null){
-            return ServerResponse.createByErrorMessage("用户未登陆");
+    public ServerResponse updateCategoryName(Principal principal, @ApiParam("分类id")Integer categoryId, @ApiParam("分类姓名")String categoryName){
+        if(principal ==null){
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
+        Authentication auth = (Authentication) principal;
+        AdminUserDetails adminUserDetails = (AdminUserDetails)auth.getPrincipal();
+        User user = adminUserDetails.getUser();
         if(!userService.checkAdminRole(user).isSuccess()){
             return ServerResponse.createByErrorMessage("无管理权限");
         }
         return categoryService.updateCategoryName(categoryId,categoryName);
     }
 
+    @ApiOperation("获取分类信息")
     @RequestMapping("get_category.do")
-    public ServerResponse getChildrenCategory(HttpSession httpSession,Integer parentId){
-        User user = (User)httpSession.getAttribute("currentUser");
-        if(user == null){
-            return ServerResponse.createByErrorMessage("用户未登陆");
+    public ServerResponse getChildrenCategory(Principal principal,@ApiParam("父节点id")Integer parentId){
+        if(principal ==null){
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
+        Authentication auth = (Authentication) principal;
+        AdminUserDetails adminUserDetails = (AdminUserDetails)auth.getPrincipal();
+        User user = adminUserDetails.getUser();
         if(!userService.checkAdminRole(user).isSuccess()){
             return ServerResponse.createByErrorMessage("无管理权限");
         }
         return categoryService.getChildCategoryOf(parentId);
     }
 
+    @ApiOperation("获取分类及其所有子分类信息")
     @RequestMapping("get_deep_category.do")
-    public ServerResponse getAllChildrenCategory(HttpSession httpSession,Integer parentId){
-        User user = (User)httpSession.getAttribute("currentUser");
-        if(user == null){
-            return ServerResponse.createByErrorMessage("用户未登陆");
+    public ServerResponse getAllChildrenCategory(Principal principal,@ApiParam("父节点id")Integer parentId){
+        if(principal ==null){
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
+        Authentication auth = (Authentication) principal;
+        AdminUserDetails adminUserDetails = (AdminUserDetails)auth.getPrincipal();
+        User user = adminUserDetails.getUser();
         if(!userService.checkAdminRole(user).isSuccess()){
             return ServerResponse.createByErrorMessage("无管理权限");
         }

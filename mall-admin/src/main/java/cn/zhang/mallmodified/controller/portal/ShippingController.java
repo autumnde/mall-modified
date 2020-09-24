@@ -6,6 +6,9 @@ import cn.zhang.mallmodified.po.Shipping;
 import cn.zhang.mallmodified.po.User;
 import cn.zhang.mallmodified.security.AdminUserDetails;
 import cn.zhang.mallmodified.service.IShippingService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,6 +21,7 @@ import java.security.Principal;
 /**
  * @author autum
  */
+@Api(tags = "收货地址API")
 @CrossOrigin
 @RestController
 @RequestMapping("/shipping/")
@@ -25,8 +29,9 @@ public class ShippingController {
     @Autowired
     private IShippingService shippingService;
 
+    @ApiOperation("添加某个收货地址")
     @RequestMapping("add.do")
-    public ServerResponse addShipping(Principal principal, Shipping shipping){
+    public ServerResponse addShipping(Principal principal, @ApiParam("收货地址详细信息") Shipping shipping){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -38,8 +43,9 @@ public class ShippingController {
         return shippingService.addShipping(shipping);
     }
 
+    @ApiOperation("删除某个收货地址")
     @RequestMapping("del.do")
-    public ServerResponse deleteShipping(Principal principal,Integer shippingId){
+    public ServerResponse deleteShipping(Principal principal,@ApiParam("收货地址id") Integer shippingId){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -49,8 +55,9 @@ public class ShippingController {
         return shippingService.deleteShipping(shippingId);
     }
 
+    @ApiOperation("更新某个收货地址")
     @RequestMapping("update.do")
-    public ServerResponse updateShipping(Principal principal,Shipping shipping){
+    public ServerResponse updateShipping(Principal principal,@ApiParam("收货地址要更新的信息") Shipping shipping){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -61,8 +68,9 @@ public class ShippingController {
         return shippingService.updateShipping(shipping);
     }
 
+    @ApiOperation("查看某个收货地址")
     @RequestMapping("select.do")
-    public ServerResponse selectShipping(Principal principal,Integer shippingId){
+    public ServerResponse selectShipping(Principal principal,@ApiParam("收货地址id") Integer shippingId){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -72,6 +80,7 @@ public class ShippingController {
         return shippingService.selectShipping(shippingId);
     }
 
+    @ApiOperation("列出某人全部的收货地址")
     @RequestMapping("list.do")
     public ServerResponse listShipping(Principal principal,Integer pageNum,Integer pageSize){
         if(principal ==null){

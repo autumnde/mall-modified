@@ -8,6 +8,9 @@ import cn.zhang.mallmodified.service.IOrderService;
 import cn.zhang.mallmodified.service.IUserService;
 import cn.zhang.mallmodified.vo.OrderVo;
 import com.github.pagehelper.PageInfo;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +22,7 @@ import java.security.Principal;
 /**
  * @author autum
  */
+@Api(tags = "订单管理API")
 @RestController
 @RequestMapping("/manager/order")
 public class OrderManagerController {
@@ -28,6 +32,7 @@ public class OrderManagerController {
     @Autowired
     private IOrderService orderService;
 
+    @ApiOperation("展示所有订单信息")
     @RequestMapping("list.do")
     public ServerResponse<PageInfo> orderList(Principal principal, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
                                               @RequestParam(value = "pageSize",defaultValue = "10")int pageSize){
@@ -46,8 +51,9 @@ public class OrderManagerController {
         }
     }
 
+    @ApiOperation("展示某个订单的详细信息")
     @RequestMapping("detail.do")
-    public ServerResponse<OrderVo> orderDetail(Principal principal, Long orderNo){
+    public ServerResponse<OrderVo> orderDetail(Principal principal, @ApiParam("订单编号")Long orderNo){
 
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
@@ -64,8 +70,9 @@ public class OrderManagerController {
 
 
 
+    @ApiOperation("查询某个订单（模糊查询，只要部分重合均能查到）")
     @RequestMapping("search.do")
-    public ServerResponse<PageInfo> orderSearch(Principal principal, Long orderNo,@RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
+    public ServerResponse<PageInfo> orderSearch(Principal principal, @ApiParam("订单编号")Long orderNo,@RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
                                                 @RequestParam(value = "pageSize",defaultValue = "10")int pageSize){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
@@ -80,8 +87,9 @@ public class OrderManagerController {
         }
     }
 
+    @ApiOperation("为某个订单发货")
     @RequestMapping("send_goods.do")
-    public ServerResponse<String> orderSendGoods(Principal principal, Long orderNo){
+    public ServerResponse<String> orderSendGoods(Principal principal, @ApiParam("订单编号")Long orderNo){
 
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());

@@ -6,6 +6,8 @@ import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.dao.CategoryDao;
 import cn.zhang.mallmodified.po.Category;
 import cn.zhang.mallmodified.service.ICategoryService;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,6 +80,26 @@ public class CategoryServiceImpl implements ICategoryService {
         getAllChildCategoryHelper(parentId,categorySet);
         List<Category> categoryList = new ArrayList<>(categorySet);
         return ServerResponse.createBySuccess(categoryList);
+    }
+
+    /**
+     * 递归查询本节点的id及孩子节点的id
+     * @param categoryId
+     * @return
+     */
+    @Override
+    public ServerResponse<List<Integer>> selectCategoryAndChildrenById(Integer categoryId){
+        Set<Category> categorySet = Sets.newHashSet();
+        getAllChildCategoryHelper(categoryId,categorySet);
+
+
+        List<Integer> categoryIdList = Lists.newArrayList();
+        if(categoryId != null){
+            for(Category categoryItem : categorySet){
+                categoryIdList.add(categoryItem.getId());
+            }
+        }
+        return ServerResponse.createBySuccess(categoryIdList);
     }
 
     /**

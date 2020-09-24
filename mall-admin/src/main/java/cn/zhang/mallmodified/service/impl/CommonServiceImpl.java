@@ -42,6 +42,8 @@ public class CommonServiceImpl implements ICommonService {
     private OrderItemDao orderItemDao;
     @Autowired
     private IOrderService orderService;
+    @Autowired
+    private CategoryDao categoryDao;
 
 
 
@@ -270,5 +272,33 @@ public class CommonServiceImpl implements ICommonService {
         productListVo.setSubtitle(product.getSubtitle());
         productListVo.setStatus(product.getStatus());
         return productListVo;
+    }
+
+    @Override
+    public ProductDetailVo assembleProductDetailVo(Product product){
+        ProductDetailVo productDetailVo = new ProductDetailVo();
+        productDetailVo.setId(product.getId());
+        productDetailVo.setSubtitle(product.getSubtitle());
+        productDetailVo.setPrice(product.getPrice());
+        productDetailVo.setMainImage(product.getMainImage());
+        productDetailVo.setSubImages(product.getSubImages());
+        productDetailVo.setCategoryId(product.getCategoryId());
+        productDetailVo.setDetail(product.getDetail());
+        productDetailVo.setName(product.getName());
+        productDetailVo.setStatus(product.getStatus());
+        productDetailVo.setStock(product.getStock());
+
+        productDetailVo.setImageHost(ImageHost);
+
+        Category category = categoryDao.selectByPrimaryKey(product.getCategoryId());
+        if(category == null){
+            productDetailVo.setParentCategoryId(0);//默认根节点
+        }else{
+            productDetailVo.setParentCategoryId(category.getParentId());
+        }
+
+        productDetailVo.setCreateTime(DateUtil.formatDateTime(product.getCreateTime()));
+        productDetailVo.setUpdateTime(DateUtil.formatDateTime(product.getUpdateTime()));
+        return productDetailVo;
     }
 }

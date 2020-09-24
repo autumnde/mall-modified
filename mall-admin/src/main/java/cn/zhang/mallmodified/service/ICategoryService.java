@@ -2,6 +2,8 @@ package cn.zhang.mallmodified.service;
 
 import cn.zhang.mallmodified.common.api.ServerResponse;
 
+import java.util.List;
+
 /**
  * @author autum
  */
@@ -35,4 +37,6 @@ public interface ICategoryService {
      * @return
      */
     ServerResponse getAllChildCategoryOf(Integer parentId);
+
+    public ServerResponse<List<Integer>> selectCategoryAndChildrenById(Integer categoryId);
 }

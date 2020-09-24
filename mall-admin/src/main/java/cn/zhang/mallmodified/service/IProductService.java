@@ -39,4 +39,15 @@ public interface IProductService {
     public ServerResponse getProductList(int pageNum,int pageSize);
 
     ServerResponse<PageInfo> searchProduct(String productName, Integer productId, int pageNum, int pageSize);
+
+    /**
+     * 根据关键字或者分类id查询分类
+     * @param keyword
+     * @param categoryId
+     * @param pageNum
+     * @param pageSize
+     * @param orderBy
+     * @return
+     */
+    ServerResponse<PageInfo> getProductByKeywordCategory(String keyword,Integer categoryId,int pageNum,int pageSize,String orderBy);
 }

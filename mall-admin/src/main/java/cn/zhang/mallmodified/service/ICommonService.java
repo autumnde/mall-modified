@@ -52,4 +52,6 @@ public interface ICommonService {
 
     public ProductListVo assembleProductListVo(Product product);
 
+    public ProductDetailVo assembleProductDetailVo(Product product);
+
  }
