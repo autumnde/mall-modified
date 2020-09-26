@@ -11,11 +11,13 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.NotBlank;
 import java.security.Principal;
 
 /**
@@ -24,6 +26,7 @@ import java.security.Principal;
 @RestController
 @Api(tags = "分类管理API")
 @RequestMapping("/manager/category")
+@Validated
 public class CategoryManagerController {
     @Autowired
     private IUserService userService;
@@ -31,9 +34,11 @@ public class CategoryManagerController {
     private ICategoryService categoryService;
 
     @ApiOperation("添加分类")
-    @RequestMapping("add_category.do")
-    public ServerResponse addCategory(Principal principal, @ApiParam("分类姓名")String categoryName,
-                                      @RequestParam(defaultValue = "0")  @ApiParam("该分类父节点编号（默认为0）")int parentId){
+    @RequestMapping("add_category")
+    public ServerResponse addCategory(Principal principal,
+                                      @ApiParam(value = "分类姓名",required = true)
+                                      @NotBlank(message = "分类姓名不能为空")String categoryName,
+                                      @RequestParam(defaultValue = "0")@ApiParam("该分类父节点编号（默认为0）")int parentId){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -48,8 +53,12 @@ public class CategoryManagerController {
     }
 
     @ApiOperation("设置分类姓名")
-    @RequestMapping("set_category_name.do")
-    public ServerResponse updateCategoryName(Principal principal, @ApiParam("分类id")Integer categoryId, @ApiParam("分类姓名")String categoryName){
+    @RequestMapping("set_category_name")
+    public ServerResponse updateCategoryName(Principal principal,
+                                             @ApiParam(value = "分类id",required = true)
+                                             @NotBlank(message = "分类id不能为空") Integer categoryId,
+                                             @ApiParam(value = "分类姓名",required = true)
+                                             @NotBlank(message = "分类姓名不能为空") String categoryName){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -63,8 +72,10 @@ public class CategoryManagerController {
     }
 
     @ApiOperation("获取分类信息")
-    @RequestMapping("get_category.do")
-    public ServerResponse getChildrenCategory(Principal principal,@ApiParam("父节点id")Integer parentId){
+    @RequestMapping("get_category")
+    public ServerResponse getChildrenCategory(Principal principal,
+                                              @ApiParam(value = "父节点id",required = true)
+                                              @NotBlank(message = "父节点id不能为空") Integer parentId){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -78,8 +89,10 @@ public class CategoryManagerController {
     }
 
     @ApiOperation("获取分类及其所有子分类信息")
-    @RequestMapping("get_deep_category.do")
-    public ServerResponse getAllChildrenCategory(Principal principal,@ApiParam("父节点id")Integer parentId){
+    @RequestMapping("get_deep_category")
+    public ServerResponse getAllChildrenCategory(Principal principal,
+                                                 @ApiParam(value = "父节点id",required = true)
+                                                 @NotBlank(message = "父节点id不能为空")Integer parentId){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }

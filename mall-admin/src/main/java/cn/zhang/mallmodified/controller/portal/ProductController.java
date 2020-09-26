@@ -8,7 +8,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * @author autum
@@ -17,13 +20,15 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RestController
 @RequestMapping("/product/")
+@Validated
 public class ProductController {
     @Autowired
     private IProductService productService;
 
     @ApiOperation("获取某个产品的详细信息")
     @RequestMapping(value = "detail.do",method = RequestMethod.GET)
-    public ServerResponse getProductDetail(@ApiParam("产品id") Integer productId){
+    public ServerResponse getProductDetail(@ApiParam(value = "产品id",required = true)
+                                               @NotBlank(message = "查询的产品id不能为空")Integer productId){
         return productService.getProductDetail(productId);
     }
 

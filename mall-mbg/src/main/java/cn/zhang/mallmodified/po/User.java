@@ -20,9 +20,6 @@ public class User implements Serializable {
      */
     private String username;
 
-    /**
-     * 用户密码，MD5加密
-     */
     private String password;
 
     private String email;

@@ -1,6 +1,8 @@
 package cn.zhang.mallmodified.service;
 
 import cn.zhang.mallmodified.common.api.ServerResponse;
+import cn.zhang.mallmodified.dto.ShippingAddDto;
+import cn.zhang.mallmodified.dto.ShippingUpdateDto;
 import cn.zhang.mallmodified.po.Shipping;
 
 /**
@@ -12,7 +14,7 @@ public interface IShippingService {
      * @param shipping
      * @return
      */
-    public ServerResponse addShipping(Shipping shipping);
+    public ServerResponse addShipping(ShippingAddDto shippingAddDto, Integer userId);
 
     /**
      * 删除收货地址信息
@@ -23,10 +25,11 @@ public interface IShippingService {
 
     /**
      * 更新收货地址信息
-     * @param shipping
+     * @param shippingUpdateDto
+     * @param userId
      * @return
      */
-    public ServerResponse updateShipping(Shipping shipping);
+    public ServerResponse updateShipping(ShippingUpdateDto shippingUpdateDto, Integer userId);
 
     /**
      * 查看收货地址信息

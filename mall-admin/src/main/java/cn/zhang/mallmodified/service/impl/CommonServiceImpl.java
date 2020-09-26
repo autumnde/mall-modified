@@ -6,6 +6,9 @@ import cn.hutool.core.util.NumberUtil;
 import cn.zhang.mallmodified.common.api.Const;
 import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.dao.*;
+import cn.zhang.mallmodified.dto.ShippingAddDto;
+import cn.zhang.mallmodified.dto.ShippingUpdateDto;
+import cn.zhang.mallmodified.dto.UserRegisterDto;
 import cn.zhang.mallmodified.po.*;
 import cn.zhang.mallmodified.service.ICommonService;
 import cn.zhang.mallmodified.service.IOrderService;
@@ -19,7 +22,6 @@ import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * @author autum
@@ -300,5 +302,69 @@ public class CommonServiceImpl implements ICommonService {
         productDetailVo.setCreateTime(DateUtil.formatDateTime(product.getCreateTime()));
         productDetailVo.setUpdateTime(DateUtil.formatDateTime(product.getUpdateTime()));
         return productDetailVo;
+    }
+
+    @Override
+    public User assembleUser(UserRegisterDto userRegisterDto) {
+        User user = new User();
+        user.setCreateTime(DateUtil.date());
+        user.setUpdateTime(DateUtil.date());
+        //注册用户不能为管理员
+        user.setRole(Const.Role.ROLE_CUSTOMER);
+        user.setEmail(userRegisterDto.getEmail());
+        user.setQuestion(userRegisterDto.getQuestion());
+        user.setAnswer(userRegisterDto.getAnswer());
+        user.setPhone(userRegisterDto.getPhone());
+        user.setUsername(userRegisterDto.getUsername());
+        user.setPassword(userRegisterDto.getPassword());
+        return user;
+    }
+
+    @Override
+    public Shipping assembleShipping(ShippingUpdateDto shippingUpdateDto, Integer userId) {
+        Shipping shipping = new Shipping();
+        shipping.setUpdateTime(DateUtil.date());
+        shipping.setUserId(userId);
+        shipping.setId(shippingUpdateDto.getShippingId());
+
+        if(shippingUpdateDto.getReceiverName() != null){
+            shipping.setReceiverName(shippingUpdateDto.getReceiverName());
+        }
+        if(shippingUpdateDto.getReceiverAddress() != null){
+            shipping.setReceiverAddress(shippingUpdateDto.getReceiverAddress());
+        }
+        if(shippingUpdateDto.getReceiverCity() != null){
+            shipping.setReceiverCity(shippingUpdateDto.getReceiverCity());
+        }
+        if(shipping.getReceiverDistrict() != null){
+            shipping.setReceiverDistrict(shippingUpdateDto.getReceiverDistrict());
+        }
+        if(shippingUpdateDto.getReceiverProvince() != null){
+            shipping.setReceiverProvince(shippingUpdateDto.getReceiverProvince());
+        }
+        if(shippingUpdateDto.getReceiverMobile() != null){
+            shipping.setReceiverMobile(shippingUpdateDto.getReceiverMobile());
+        }
+        if(shippingUpdateDto.getReceiverPhone() != null){
+            shipping.setReceiverPhone(shippingUpdateDto.getReceiverPhone());
+        }
+
+        return shipping;
+    }
+
+    @Override
+    public Shipping assembleShipping(ShippingAddDto shippingAddDto, Integer userId) {
+        Shipping shipping = new Shipping();
+        shipping.setCreateTime(DateUtil.date());
+        shipping.setUpdateTime(DateUtil.date());
+        shipping.setUserId(userId);
+        shipping.setReceiverName(shippingAddDto.getReceiverName());
+        shipping.setReceiverAddress(shippingAddDto.getReceiverAddress());
+        shipping.setReceiverCity(shippingAddDto.getReceiverCity());
+        shipping.setReceiverDistrict(shippingAddDto.getReceiverDistrict());
+        shipping.setReceiverProvince(shippingAddDto.getReceiverProvince());
+        shipping.setReceiverMobile(shippingAddDto.getReceiverMobile());
+        shipping.setReceiverPhone(shippingAddDto.getReceiverPhone());
+        return shipping;
     }
 }

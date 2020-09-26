@@ -1,10 +1,14 @@
 package cn.zhang.mallmodified.service;
 
 import cn.zhang.mallmodified.common.api.ServerResponse;
+import cn.zhang.mallmodified.dto.UserRegisterDto;
+import cn.zhang.mallmodified.dto.UserUpdateDto;
 import cn.zhang.mallmodified.po.User;
 import cn.zhang.mallmodified.vo.OrderVo;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+
+import java.security.Principal;
 
 /**
  * @author autum
@@ -23,7 +27,7 @@ public interface IUserService {
      * @param user 注册用户信息
      * @return 注册结果
      */
-    ServerResponse<String> register(User user);
+    ServerResponse<String> register(UserRegisterDto user);
 
     /**
      * 根据邮箱获取安全问题
@@ -61,10 +65,10 @@ public interface IUserService {
 
     /**
      * 在线状态下更新用户信息
-     * @param user
+     * @param userUpdateDto
      * @return
      */
-    ServerResponse updateInformation(User user);
+    ServerResponse updateInformation(Principal principal, UserUpdateDto userUpdateDto);
 
     /**
      * 检查该角色是否为管理员
@@ -83,4 +87,6 @@ public interface IUserService {
     ServerResponse getCurrentUser();
 
     ServerResponse<OrderVo> manageDetail(Long orderNo);
+
+    ServerResponse updateSafetyQuestion(User user,String oldQuestion,String oldAnswer,String newQuestion,String newAnswer);
 }

@@ -10,12 +10,14 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.NotBlank;
 import java.security.Principal;
 
 /**
@@ -25,6 +27,7 @@ import java.security.Principal;
 @CrossOrigin
 @RestController
 @RequestMapping("/cart/")
+@Validated
 public class CartController {
     @Autowired
     private ICartService cartService;
@@ -42,8 +45,12 @@ public class CartController {
     }
 
     @ApiOperation("添加产品到购物车中")
-    @RequestMapping(value = "add.do",method = RequestMethod.GET)
-    public ServerResponse addCart(Principal principal, @ApiParam("产品id") Integer productId,@ApiParam("产品数量") Integer count){
+    @RequestMapping(value = "add",method = RequestMethod.GET)
+    public ServerResponse addCart(Principal principal,
+                                  @ApiParam(value = "产品id",required = true)
+                                  @NotBlank(message = "产品id不能为空") Integer productId,
+                                  @ApiParam(value = "产品数量",required = true)
+                                  @NotBlank(message = "产品数量不能为空") Integer count){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -54,8 +61,12 @@ public class CartController {
     }
 
     @ApiOperation("更新购物车内某个产品的数量，即直接改为某个值")
-    @RequestMapping(value = "update.do",method = RequestMethod.GET)
-    public ServerResponse updateCart(Principal principal,@ApiParam("产品id")Integer productId,@ApiParam("产品数量")Integer count){
+    @RequestMapping(value = "update",method = RequestMethod.GET)
+    public ServerResponse updateCart(Principal principal,
+                                     @ApiParam(value = "产品id",required = true)
+                                     @NotBlank(message = "产品id不能为空")Integer productId,
+                                     @ApiParam(value = "产品数量",required = true)
+                                         @NotBlank(message = "产品数量不能为空")Integer count){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -66,8 +77,10 @@ public class CartController {
     }
 
     @ApiOperation("删除购物车内多个产品")
-    @RequestMapping(value = "delete_product.do",method = RequestMethod.GET)
-    public ServerResponse deleteCart(Principal principal,@ApiParam("产品id集合（请以‘,’为间隔,英文输入法）")String productIds){
+    @RequestMapping(value = "delete_product",method = RequestMethod.GET)
+    public ServerResponse deleteCart(Principal principal,
+                                     @ApiParam(value = "产品id集合（请以‘,’为间隔,英文输入法）",required = true)
+                                     @NotBlank(message = "请输入产品id集合")String productIds){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -78,8 +91,10 @@ public class CartController {
     }
 
     @ApiOperation("勾选购物车内某个产品")
-    @RequestMapping(value = "select.do",method = RequestMethod.GET)
-    public ServerResponse select(Principal principal,@ApiParam("产品id")Integer productId){
+    @RequestMapping(value = "select",method = RequestMethod.GET)
+    public ServerResponse select(Principal principal,
+                                 @ApiParam(value = "产品id",required = true)
+                                 @NotBlank(message = "产品id不能为空")Integer productId){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -90,8 +105,10 @@ public class CartController {
     }
 
     @ApiOperation("取消勾选购物车内某个产品")
-    @RequestMapping(value = "un_select.do",method = RequestMethod.GET)
-    public ServerResponse unselect(Principal principal,@ApiParam("产品id")Integer productId){
+    @RequestMapping(value = "un_select",method = RequestMethod.GET)
+    public ServerResponse unselect(Principal principal,
+                                   @ApiParam(value = "产品id",required = true)
+                                   @NotBlank(message = "产品id不能为空")Integer productId){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -102,7 +119,7 @@ public class CartController {
     }
 
     @ApiOperation("勾选购物车内全部产品")
-    @RequestMapping(value = "select_all.do",method = RequestMethod.GET)
+    @RequestMapping(value = "select_all",method = RequestMethod.GET)
     public ServerResponse selectALL(Principal principal){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
@@ -114,7 +131,7 @@ public class CartController {
     }
 
     @ApiOperation("取消购物车内全部产品的勾选")
-    @RequestMapping(value = "un_select_all.do",method = RequestMethod.GET)
+    @RequestMapping(value = "un_select_all",method = RequestMethod.GET)
     public ServerResponse unSelectALL(Principal principal){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
@@ -126,7 +143,7 @@ public class CartController {
     }
 
     @ApiOperation("获取购物车内产品总数量")
-    @RequestMapping(value = "get_cart_product_count.do",method = RequestMethod.GET)
+    @RequestMapping(value = "get_cart_product_count",method = RequestMethod.GET)
     public ServerResponse getCartProductNum(Principal principal){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());

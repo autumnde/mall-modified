@@ -11,9 +11,11 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.security.core.Authentication;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.NotBlank;
 import java.security.Principal;
 
 /**
@@ -23,13 +25,16 @@ import java.security.Principal;
 @CrossOrigin
 @RestController
 @RequestMapping("/order/")
+@Validated
 public class OrderController {
     @Autowired
     private IOrderService orderService;
 
     @ApiOperation("根据收货地址创建订单")
-    @RequestMapping(value = "create.do",method = RequestMethod.GET)
-    public ServerResponse create(Principal principal, @ApiParam("收货地址id")Integer shippingId){
+    @RequestMapping(value = "create",method = RequestMethod.GET)
+    public ServerResponse create(Principal principal,
+                                 @ApiParam(value = "收货地址id",required = true)
+                                 @NotBlank(message = "收货地址id不能为空") Integer shippingId){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -40,8 +45,10 @@ public class OrderController {
     }
 
     @ApiOperation("根据订单No取消订单")
-    @RequestMapping(value = "cancel.do",method = RequestMethod.GET)
-    public ServerResponse cancel(Principal principal,@ApiParam("订单No")Long orderNo){
+    @RequestMapping(value = "cancel",method = RequestMethod.GET)
+    public ServerResponse cancel(Principal principal,
+                                 @ApiParam(value = "订单No",required = true)
+                                 @NotBlank(message = "订单编号不能为空") Long orderNo){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -50,7 +57,7 @@ public class OrderController {
     }
 
     @ApiOperation("获取订单购物车内的产品")
-    @RequestMapping(value = "get_order_cart_product.do", method = RequestMethod.GET)
+    @RequestMapping(value = "get_order_cart_product", method = RequestMethod.GET)
     public ServerResponse getOrderCartProduct(Principal principal){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
@@ -62,7 +69,7 @@ public class OrderController {
     }
 
     @ApiOperation("获取订单列表")
-    @RequestMapping(value = "list.do",method = RequestMethod.GET)
+    @RequestMapping(value = "list",method = RequestMethod.GET)
     public ServerResponse list(Principal principal,
                                @RequestParam(value = "pageNum",defaultValue = "1") @ApiParam("列表页数") int pageNum,
                                @RequestParam(value = "pageSize",defaultValue = "10") @ApiParam("每页展示的数量")int pageSize){
@@ -76,8 +83,10 @@ public class OrderController {
     }
 
     @ApiOperation("获取对应No的订单详细信息")
-    @RequestMapping(value = "detail.do",method = RequestMethod.GET)
-    public ServerResponse detail(Principal principal,@ApiParam("订单No")Long orderNo){
+    @RequestMapping(value = "detail",method = RequestMethod.GET)
+    public ServerResponse detail(Principal principal,
+                                 @ApiParam(value = "订单No",required = true)
+                                 @NotBlank(message = "订单编号不能为空") Long orderNo){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }

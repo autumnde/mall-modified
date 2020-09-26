@@ -12,10 +12,5 @@ import java.util.UUID;
 
 @SpringBootTest
 class MallAdminApplicationTests {
-    @Autowired
-    private IRedisService redisService;
-    @Test
-    void contextLoads() throws IOException {
-    }
 
 }

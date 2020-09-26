@@ -3,8 +3,10 @@ package cn.zhang.mallmodified.service.impl;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.lang.Validator;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.extra.mail.MailUtil;
 import cn.zhang.mallmodified.common.api.Const;
 import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.common.utils.JwtTokenUtil;
@@ -12,6 +14,8 @@ import cn.zhang.mallmodified.dao.OrderDao;
 import cn.zhang.mallmodified.dao.OrderItemDao;
 import cn.zhang.mallmodified.dao.ShippingDao;
 import cn.zhang.mallmodified.dao.UserDao;
+import cn.zhang.mallmodified.dto.UserRegisterDto;
+import cn.zhang.mallmodified.dto.UserUpdateDto;
 import cn.zhang.mallmodified.po.Order;
 import cn.zhang.mallmodified.po.OrderItem;
 import cn.zhang.mallmodified.po.Shipping;
@@ -34,6 +38,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.List;
 
 /**
@@ -70,7 +75,7 @@ public class UserServiceImpl implements IUserService {
         }
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         if (!passwordEncoder.matches(password, userDetails.getPassword())) {
-            return ServerResponse.createByError();
+            return ServerResponse.createByErrorMessage("用户密码错误");
         }
 
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
@@ -80,18 +85,19 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public ServerResponse register(User user) {
-        ServerResponse validResponse = checkValid(user.getUsername(),Const.USERNAME);
-        if(!validResponse.isSuccess()){
-            return validResponse;
+    public ServerResponse register(UserRegisterDto userRegisterDto) {
+        //检查部分关键参数是否为空及其格式
+        ServerResponse serverResponse = checkUserRegisterDto(userRegisterDto);
+        if(!serverResponse.isSuccess()){
+            return serverResponse;
         }
-        validResponse = checkValid(user.getEmail(),Const.EMAIL);
-        if(!validResponse.isSuccess()){
-            return validResponse;
-        }
+        //格式转化
+        User user = commonService.assembleUser(userRegisterDto);
+        //密码加密
+        String password = passwordEncoder.encode(user.getPassword());
+        user.setPassword(password);
 
-        user.setRole(Const.Role.ROLE_CUSTOMER);
-        int count = userDao.insert(user);
+        int count = userDao.insertSelective(user);
         if(count == 0){
             return ServerResponse.createByErrorMessage("注册失败");
         }
@@ -100,7 +106,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public ServerResponse<String> getQuestionByUsername(String username) {
+    public ServerResponse getQuestionByUsername(String username) {
         int count = userDao.checkUsername(username);
         if(count == 0){
             return ServerResponse.createByErrorMessage("用户名不存在");
@@ -139,6 +145,12 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public ServerResponse resetPassword(String username, String passwordNew,String passwordOld) {
+        if(StrUtil.length(passwordOld) > 32){
+            return ServerResponse.createByErrorMessage("密码过长");
+        }
+        else if(StrUtil.length(passwordOld) < 16){
+            return ServerResponse.createByErrorMessage("密码过短");
+        }
         int count = userDao.checkUsername(username);
         if(count == 0){
             return ServerResponse.createByErrorMessage("用户名不存在");
@@ -155,23 +167,33 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public ServerResponse<User> updateInformation(User user) {
-        int resultCount = userDao.checkEmailByUsername(user.getUsername(),user.getEmail());
-        if(resultCount > 0){
-            return ServerResponse.createByErrorMessage("email已存在,请更换email再尝试更新");
+    public ServerResponse updateInformation(Principal principal, UserUpdateDto userUpdateDto) {
+        Authentication auth = (Authentication) principal;
+        AdminUserDetails adminUserDetails = (AdminUserDetails)auth.getPrincipal();
+        User userCurrent = adminUserDetails.getUser();
+        //判断参数是否合理
+        ServerResponse serverResponse = checkUserUpdateDto(userUpdateDto,userCurrent.getId());
+        if(!serverResponse.isSuccess()){
+            return serverResponse;
         }
-        User updateUser = new User();
-        updateUser.setId(user.getId());
-        updateUser.setPhone(user.getPhone());
-        updateUser.setEmail(user.getEmail());
-        updateUser.setQuestion(user.getQuestion());
-        updateUser.setAnswer(user.getAnswer());
+        User user = new User();
+        user.setId(userCurrent.getId());
 
-        int count = userDao.updateByPrimaryKeySelective(updateUser);
-        if(count == 0){
+        if(userUpdateDto.getEmail() != null){
+            user.setEmail(userUpdateDto.getEmail());
+        }
+        if(userUpdateDto.getUsername() != null){
+            user.setUsername(userUpdateDto.getUsername());
+        }
+        if(userUpdateDto.getPhone() != null){
+            user.setPhone(userUpdateDto.getPhone());
+        }
+        user.setUpdateTime(DateUtil.date());
+
+        if(userDao.insertSelective(user) ==0){
             return ServerResponse.createByErrorMessage("用户信息更新失败");
         }
-        return ServerResponse.createBySuccess("用户信息更新成功",updateUser);
+        return ServerResponse.createBySuccess("用户信息更新成功");
     }
 
     @Override
@@ -200,7 +222,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public ServerResponse<OrderVo> manageDetail(Long orderNo){
+    public ServerResponse manageDetail(Long orderNo){
         Order order = orderDao.selectByOrderNo(orderNo);
         if(order != null){
             List<OrderItem> orderItemList = orderItemDao.selectByOrderNo(orderNo);
@@ -210,21 +232,96 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createByErrorMessage("订单不存在");
     }
 
-    public ServerResponse<String> checkValid(String value,String type){
-        if(StrUtil.equals(type, Const.USERNAME,true)){
-            if(userDao.checkUsername(value) > 0){
-                return ServerResponse.createByErrorMessage("用户名重复");
-            }
-            return ServerResponse.createBySuccessMessage("校验成功");
+    @Override
+    public ServerResponse updateSafetyQuestion(User user,String oldQuestion,String oldAnswer, String newQuestion, String newAnswer) {
+        if(userDao.checkAnswer(user.getUsername(),oldQuestion,oldAnswer) == 0){
+            return ServerResponse.createByErrorMessage("安全问题回答错误");
         }
-        else if(StrUtil.equals(type, Const.EMAIL,true)){
-            if(userDao.checkEmail(value) > 0){
-                return ServerResponse.createByErrorMessage("邮箱已存在");
-            }
-            return ServerResponse.createBySuccessMessage("校验成功");
+        if(newAnswer == null || newQuestion == null){
+            return ServerResponse.createByErrorMessage("安全问题信息不完善");
         }
-        else{
-            return ServerResponse.createByErrorMessage("参数类型错误");
+        User updateUser = new User();
+        updateUser.setUpdateTime(DateUtil.date());
+        updateUser.setId(user.getId());
+        user.setQuestion(newQuestion);
+        user.setAnswer(newAnswer);
+
+        if(userDao.insertSelective(user) == 0){
+            return ServerResponse.createByErrorMessage("安全问题更新错误");
+        }
+        return ServerResponse.createBySuccessMessage("安全问题更新成功");
+
+    }
+
+    private ServerResponse checkUserRegisterDto(UserRegisterDto userRegisterDto){
+        StringBuilder msg = new StringBuilder();
+        //用户名是否重复
+        if(userDao.checkUsername(userRegisterDto.getUsername()) > 0){
+                msg.append("用户名重复\\r\\n");
+        }
+
+        //安全问题和安全问题答案格式判断
+        if((userRegisterDto.getAnswer() != null)^(userRegisterDto.getQuestion() != null)){
+            msg.append("安全问题和安全问题答案不可只填一个\\r\\n");
+        }
+        //邮箱是否重复
+        if(userRegisterDto.getEmail() != null){
+            String email = userRegisterDto.getEmail();
+            if(userDao.checkEmail(email) > 0){
+                msg.append("邮箱已存在\\r\\n");
+            }
+        }
+        //电话格式验证
+        if(userRegisterDto.getPhone() != null){
+            String phone = userRegisterDto.getPhone();
+            if(!Validator.isMobile(phone)){
+                msg.append("电话号码格式错误\\r\\n");
+            }
+            else if(userDao.checkPhone(phone) > 0){
+                return ServerResponse.createByErrorMessage("电话号码已存在\\r\\n");
+            }
+        }
+
+
+        if(msg.length() > 0){
+            return ServerResponse.createByErrorMessage(msg.toString());
+        }
+        else {
+            return ServerResponse.createBySuccess();
+        }
+    }
+
+    private ServerResponse checkUserUpdateDto(UserUpdateDto userUpdateDto,Integer updateUserId) {
+        User user = userDao.selectByPrimaryKey(updateUserId);
+        StringBuilder errorMsg = new StringBuilder();
+        //如果更新了用户名，判断是否重复
+        if (user.getUsername() != null && user.getUsername() != userUpdateDto.getUsername()) {
+            if (userDao.checkUsername(userUpdateDto.getUsername()) > 0) {
+                errorMsg.append("用户名重复\\r\\n");
+            }
+        }
+        //检验邮箱是否重复
+        if (userUpdateDto.getEmail() != null) {
+            if (userDao.checkEmailByUsername(user.getUsername(), userUpdateDto.getEmail()) > 0) {
+                errorMsg.append("email已存在,请更换email再尝试更新\\r\\n");
+            }
+
+        }
+        //检查电话号码
+        if (userUpdateDto.getPhone() != null) {
+            if(!Validator.isMobile(userUpdateDto.getPhone())){
+                errorMsg.append("phone格式错误\\r\\n");
+            }
+            else if(userDao.checkPhoneByUserName(user.getUsername(), userUpdateDto.getPhone()) > 0) {
+                errorMsg.append("phone已存在，请更换phone再尝试更新\\r\\n");
+            }
+        }
+
+
+        if (errorMsg.length() > 0) {
+            return ServerResponse.createByErrorMessage(errorMsg.toString());
+        } else {
+            return ServerResponse.createBySuccess();
         }
     }
 }

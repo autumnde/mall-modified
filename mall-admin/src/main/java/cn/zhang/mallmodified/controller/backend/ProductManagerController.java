@@ -11,8 +11,10 @@ import cn.zhang.mallmodified.service.IProductService;
 import cn.zhang.mallmodified.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import java.security.Principal;
 
 /**
@@ -28,6 +32,7 @@ import java.security.Principal;
 @Api(tags = "商品管理API")
 @RestController
 @RequestMapping("/manager/product")
+@Validated
 public class ProductManagerController {
     @Autowired
     private IProductService productService;
@@ -37,8 +42,10 @@ public class ProductManagerController {
     FtpUtils ftpUtils;
 
     @ApiOperation("上传某个商品信息(如果该产品已经存在则更新信息，否则添加新产品)")
-    @RequestMapping("save.do")
-    public ServerResponse productSave(Principal principal, Product product){
+    @RequestMapping("save")
+    public ServerResponse productSave(Principal principal,
+                                      @ApiParam(value = "添加产品的详细信息",required = true)
+                                      @Valid Product product){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -55,8 +62,12 @@ public class ProductManagerController {
     }
 
     @ApiOperation("设置产品状态")
-    @RequestMapping("set_sale_status.do")
-    public ServerResponse setProductState(Principal principal,Integer productId,Integer status){
+    @RequestMapping("set_sale_status")
+    public ServerResponse setProductState(Principal principal,
+                                          @ApiParam(value = "产品id",required = true)
+                                          @NotBlank(message = "产品id不能为空") Integer productId,
+                                          @ApiParam(value = "产品状态",required = true)
+                                          @NotBlank(message = "产品状态不能为空")Integer status){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -73,8 +84,10 @@ public class ProductManagerController {
     }
 
     @ApiOperation("根据id获取某个产品详细信息")
-    @RequestMapping("detail.do")
-    public ServerResponse getProductDetail(Principal principal,Integer productId){
+    @RequestMapping("detail")
+    public ServerResponse getProductDetail(Principal principal,
+                                           @ApiParam(value = "产品id",required = true)
+                                           @NotBlank(message = "产品id不能为空")Integer productId){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -89,8 +102,10 @@ public class ProductManagerController {
     }
 
     @ApiOperation("展示所有的产品信息")
-    @RequestMapping("list.do")
-    public ServerResponse getProductList(Principal principal, @RequestParam(value = "pageNum",defaultValue = "1")int pageNum,@RequestParam(value = "pageSize",defaultValue = "10")int pageSize){
+    @RequestMapping("list")
+    public ServerResponse getProductList(Principal principal,
+                                         @RequestParam(value = "pageNum",defaultValue = "1")int pageNum,
+                                         @RequestParam(value = "pageSize",defaultValue = "10")int pageSize){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -105,8 +120,11 @@ public class ProductManagerController {
     }
 
     @ApiOperation("上传图片到服务器中")
-    @PostMapping("upload.do")
-    public ServerResponse upload(Principal principal,@RequestParam(value = "upLoadFile",required = false) MultipartFile file){
+    @PostMapping("upload")
+    public ServerResponse upload(Principal principal,
+                                 @RequestParam(value = "upLoadFile",required = false)
+                                 @ApiParam(value = "上传的文件")
+                                 @NotBlank(message = "上传文件不能为空") MultipartFile file){
         if(principal ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getMessage());
         }
@@ -121,8 +139,10 @@ public class ProductManagerController {
     }
 
     @ApiOperation("根据关键字和id查询产品")
-    @RequestMapping("search.do")
-    public ServerResponse productSearch(Principal principal, String productName, Integer productId,
+    @RequestMapping("search")
+    public ServerResponse productSearch(Principal principal,
+                                        String productName,
+                                        Integer productId,
                                         @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
                                         @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
         if(principal ==null){

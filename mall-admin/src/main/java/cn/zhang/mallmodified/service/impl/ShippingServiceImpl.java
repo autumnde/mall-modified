@@ -3,9 +3,12 @@ package cn.zhang.mallmodified.service.impl;
 import cn.hutool.core.date.DateUtil;
 import cn.zhang.mallmodified.common.api.ServerResponse;
 import cn.zhang.mallmodified.dao.ShippingDao;
+import cn.zhang.mallmodified.dto.ShippingAddDto;
+import cn.zhang.mallmodified.dto.ShippingUpdateDto;
 import cn.zhang.mallmodified.po.Shipping;
-import cn.zhang.mallmodified.po.User;
+import cn.zhang.mallmodified.service.ICommonService;
 import cn.zhang.mallmodified.service.IShippingService;
+import cn.zhang.mallmodified.vo.ShippingVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +23,11 @@ import java.util.List;
 public class ShippingServiceImpl implements IShippingService {
     @Autowired
     private ShippingDao shippingDao;
+    @Autowired
+    private ICommonService commonService;
     @Override
-    public ServerResponse addShipping(Shipping shipping) {
-        shipping.setCreateTime(DateUtil.date());
-        shipping.setUpdateTime(DateUtil.date());
+    public ServerResponse addShipping(ShippingAddDto shippingAddDto,Integer userId){
+        Shipping shipping = commonService.assembleShipping(shippingAddDto,userId);
         if(shippingDao.insert(shipping) == 0){
             return ServerResponse.createByErrorMessage("添加用户失败");
         }
@@ -39,7 +43,10 @@ public class ShippingServiceImpl implements IShippingService {
     }
 
     @Override
-    public ServerResponse updateShipping(Shipping shipping) {
+    public ServerResponse updateShipping(ShippingUpdateDto shippingUpdateDto, Integer userId) {
+        //将收货地址更新信息转化为shipping
+        Shipping shipping = commonService.assembleShipping(shippingUpdateDto,userId);
+        //对数据库进行修改
         if(shippingDao.updateByPrimaryKeySelective(shipping) == 0){
             return ServerResponse.createByErrorMessage("更新收货地址信息失败");
         }
@@ -49,17 +56,11 @@ public class ShippingServiceImpl implements IShippingService {
     @Override
     public ServerResponse selectShipping(Integer shippingId) {
         Shipping shipping = shippingDao.selectByPrimaryKey(shippingId);
-        if(shipping == null){
-            return ServerResponse.createByError();
-        }
         return ServerResponse.createBySuccess(shipping);
     }
 
     @Override
     public ServerResponse listShipping(Integer userId, Integer pageNum, Integer pageSize) {
-        if(userId == null){
-            return ServerResponse.createByErrorMessage("用户编号错误");
-        }
         List<Shipping> shippingList = shippingDao.selectShippingListByUserId(userId);
         PageHelper.startPage(pageNum,pageSize);
         PageInfo pageInfo = new PageInfo(shippingList);

@@ -1,10 +1,10 @@
 package cn.zhang.mallmodified.service;
 
 import cn.zhang.mallmodified.common.api.ServerResponse;
-import cn.zhang.mallmodified.po.Order;
-import cn.zhang.mallmodified.po.OrderItem;
-import cn.zhang.mallmodified.po.Product;
-import cn.zhang.mallmodified.po.Shipping;
+import cn.zhang.mallmodified.dto.ShippingAddDto;
+import cn.zhang.mallmodified.dto.ShippingUpdateDto;
+import cn.zhang.mallmodified.dto.UserRegisterDto;
+import cn.zhang.mallmodified.po.*;
 import cn.zhang.mallmodified.vo.*;
 
 import javax.servlet.http.HttpSession;
@@ -54,4 +54,14 @@ public interface ICommonService {
 
     public ProductDetailVo assembleProductDetailVo(Product product);
 
+    /**
+     * UserRegisterDto转化为User
+     * @param userRegisterDto
+     * @return
+     */
+    public User assembleUser(UserRegisterDto userRegisterDto);
+
+    public Shipping assembleShipping(ShippingUpdateDto shippingUpdateDto, Integer userId);
+
+    public Shipping assembleShipping(ShippingAddDto shippingAddDto, Integer userId);
  }
