@@ -1,0 +1,41 @@
+2020-10-19 10:54:30.211  INFO 22320 --- [main] c.z.m.MallModifiedApplication            : Starting MallModifiedApplication using Java 11.0.7 on LAPTOP-I2SNR91K with PID 22320 (D:\WorkSpace\mall-modified\mall-admin\target\classes started by autum in D:\WorkSpace\mall-modified)
+2020-10-19 10:54:30.220  INFO 22320 --- [main] c.z.m.MallModifiedApplication            : The following profiles are active: dev
+2020-10-19 10:54:32.015  INFO 22320 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-19 10:54:32.019  INFO 22320 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-19 10:54:32.054  INFO 22320 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2020-10-19 10:54:32.731  INFO 22320 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@591be8aa' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-19 10:54:32.738  INFO 22320 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-19 10:54:33.784  INFO 22320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-19 10:54:33.794  INFO 22320 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-19 10:54:33.794  INFO 22320 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-19 10:54:33.795  INFO 22320 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2020-10-19 10:54:33.796  INFO 22320 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-10-19 10:54:33.796  INFO 22320 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-10-19 10:54:33.799  INFO 22320 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-10-19 10:54:33.903  INFO 22320 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-19 10:54:33.903  INFO 22320 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3582 ms
+2020-10-19 10:54:34.634  INFO 22320 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-10-19 10:54:34.900  INFO 22320 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-10-19 10:54:35.761  INFO 22320 --- [main] org.redisson.Version                     : Redisson 3.13.4
+2020-10-19 10:54:38.084  INFO 22320 --- [redisson-netty-4-14] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for /140.143.149.101:6379
+2020-10-19 10:54:38.246  INFO 22320 --- [redisson-netty-4-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for /140.143.149.101:6379
+2020-10-19 10:54:38.919  INFO 22320 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-10-19 10:54:39.139  INFO 22320 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38224635, org.springframework.security.web.context.SecurityContextPersistenceFilter@2314f013, org.springframework.security.web.header.HeaderWriterFilter@49b73e6c, org.springframework.web.filter.CorsFilter@7385a72f, org.springframework.security.web.authentication.logout.LogoutFilter@2226fd2b, cn.zhang.mallmodified.security.JwtAuthenticationTokenFilter@34d0c331, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4545cfc0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5edce7da, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5ff12345, org.springframework.security.web.session.SessionManagementFilter@3070f59f, org.springframework.security.web.access.ExceptionTranslationFilter@3dedc8b8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@366c9912]
+2020-10-19 10:54:39.176  INFO 22320 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-10-19 10:54:39.336  INFO 22320 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-19 10:54:40.055  INFO 22320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-19 10:54:40.056  INFO 22320 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-10-19 10:54:40.076  INFO 22320 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-10-19 10:54:40.115  INFO 22320 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-10-19 10:54:40.532  INFO 22320 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listUsingGET_1
+2020-10-19 10:54:40.562  INFO 22320 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getProductDetailUsingGET_1
+2020-10-19 10:54:40.682  INFO 22320 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [140.143.149.101:5672]
+2020-10-19 10:54:40.907  INFO 22320 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#71f437d7:0/SimpleConnection@6f0ab520 [delegate=amqp://mall-modified@140.143.149.101:5672//mall, localPort= 54980]
+2020-10-19 10:54:42.070  INFO 22320 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-10-19 10:54:42.080  INFO 22320 --- [main] c.z.m.MallModifiedApplication            : Started MallModifiedApplication in 12.502 seconds (JVM running for 13.281)
+2020-10-19 11:02:32.416  INFO 22320 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-19 11:02:32.417  INFO 22320 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-19 11:02:32.419  INFO 22320 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2020-10-19 11:02:32.445  INFO 22320 --- [http-nio-8080-exec-2] c.z.m.s.JwtAuthenticationTokenFilter     : 进入jwt过滤器
+2020-10-19 11:02:32.446  INFO 22320 --- [http-nio-8080-exec-2] c.z.m.s.JwtAuthenticationTokenFilter     : 退出jwt过滤器
+2020-10-19 11:02:32.562  INFO 22320 --- [http-nio-8080-exec-2] c.z.m.exception.GlobalExceptionHandler   : 处理异常 BindException

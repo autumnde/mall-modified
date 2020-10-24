@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: mall-admin
+  profiles:
+    active: dev
+  security:
+    user:
+      name: admin
+      password: 123456
+  rabbitmq:
+    username: mall-modified
+    password: zhanghui
+    host: 140.143.149.101
+    port: 5672
+    virtual-host: /mall
+
+server:
+  port: 8080
+
+mybatis:
+  mapper-locations:
+    - classpath*:cn/**/mapper/*.xml
+
+redis:
+  key:
+   prefix:
+      authCode: "portal:authCode"
+   expire:
+      authCode: 120
+   product:
+     stock: 'product_id:'
+
+
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mall-admin-secret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24*7)
+  tokenHead: 'Bearer'  #JWT负载中拿到开头
+
+ftp:
+  server:
+    host: http://img.happymmall.com/
+    username: ftpuser
+    password: zhanghui
+    port: 21
+    dir: /home/ftpuser/mall
+
